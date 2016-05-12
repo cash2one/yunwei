@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# fastcgi: nginx php's cgi start and stop 
+
+# chkconfig: 345 69 05
+
+######################定义函数######################
+function start {
+	pgrep -f php-fpm.conf > /dev/null && { echo "fastcgi is running....";exit 1; }
+	echo "starting fastcgi ......"
+	/usr/local/php/sbin/php-fpm -g $PID_FILE
+	for ((i=1;i<=10;i++));do
+	 	sleep 1
+		pgrep -f php-fpm.conf > /dev/null && { echo "fastcgi is started";break; }
+		[ "$i" = 10 ] && { echo "fastcgi start failed";exit 1; }
+	done
+}
+
+function stop {
+	pgrep -f php-fpm.conf > /dev/null || { echo "fastcgi is not run";exit 1; }
+	echo "stopping fastcgi....."
+	kill -2 `cat $PID_FILE`
+	for ((i=1;i<=10;i++));do
+                sleep 1
+                pgrep -f php-fpm.conf > /dev/null || { echo "fastcgi is stop";break; }
+                [ "$i" = 10 ] && { echo "fastcgi stop failed";exit 1; }
+        done
+}
+
+function rh_status {
+	status -p $PID_FILE fastcgi
+}
+
+function print_error {
+	echo "usage:$0 <start|stop|restart|status>"
+	exit 1
+}
+
+####################################################
+
+source /etc/rc.d/init.d/functions
+PID_FILE=/var/run/fastcgi.pid
+
+case $1 in
+start) start;;
+stop) stop;;
+restart) stop;start;;
+status) rh_status;;
+*) print_error;;
+esac
+

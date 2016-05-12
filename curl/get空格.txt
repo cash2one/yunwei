@@ -1,0 +1,9 @@
+curl "http://localhost/ltp?app=2&s=你好 中国"
+会报
+Error 400: Bad Request
+Can not parse request: [GET]
+
+如果改成
+curl "http://localhost/ltp?app=2" -d "&s=你好 中国"
+
+会获取预期的结果

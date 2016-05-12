@@ -1,0 +1,54 @@
+#!/bin/bash
+
+#mongod_6001 	start and stop the mongodb server
+#chkconfig: 345 81 02
+
+#start or stop mongod; writed by yyr
+
+
+function start_mongod {
+  rm -f /data/database/mongo/6001/mongod.lock
+  taskset -c 1 /usr/bin/mongod --pidfilepath $PID_FILE -f /etc/mongod_6001.conf 
+  for ((i=1;i<=60;i++));do
+    sleep 2
+    pgrep -f mongod_6001.conf >/dev/null && { printf "\033[32;1m 开启mongod_6001成功\033[0m\n";break; }
+    [ "$i" -eq 60 ] && { printf "\033[31;1m 开启mongod_6001失败\033[0m\n";exit 1; }
+  done
+}
+
+
+function stop_mongod {
+  /usr/bin/mongo --port 6001 admin --eval "db.shutdownServer()"
+  for ((i=1;i<=60;i++));do
+    sleep 2
+    pgrep -f mongod_6001.conf >/dev/null || { printf "\033[32;1m 关闭mongod_6001成功\033[0m\n";rm -f /var/run/mongod_6001.pid;break; }
+    [ "$i" -eq 60 ] && { printf "\033[31;1m 关闭mongod_6001失败\033[0m\n";exit 1; }
+  done
+}
+
+function rh_status {
+ status -p $PID_FILE mongod
+}
+
+function print_error {
+  echo "usage: $0 <start|stop|restart|status>"
+  exit 1
+}
+
+##############################功能执行################################
+
+
+
+[ "${#@}" -eq 0 ] && print_error
+
+source /etc/rc.d/init.d/functions
+PID_FILE="/var/run/mongod_6001.pid"
+
+case $1 in
+start) start_mongod;;
+stop) stop_mongod;;
+restart) stop_mongod;start_mongod;;
+status) rh_status;;
+*) print_error;;
+esac
+
