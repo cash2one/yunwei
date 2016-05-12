@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+一：开启ssh用的变量
+	vim /etc/ssh/sshd_config 
+	PermitUserEnvironment yes
+
+二：定义NAME_OF_KEY
+	environment="NAME_OF_KEY=lupuxiao" ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQC4dnbSUB9eCBDUDHiQgoQDvD/U53boERbXdAVcs46e+mXzALkjYlXZGsp3jM3ZlRXezLdy2ZzK/bJh459hA36XA6bKaXrhElhypPIiKb3OGMvKv2HpQo/tE6oow2KoTGl8uysSunAa3dri1X2VpwemaVGoCAvvjVjnacufvFcYqw== lupuxiao
+
+三：history 会显示名字
+	echo 'export HISTTIMEFORMAT="%F %T $NAME_OF_KEY "' >> /etc/profile
+
+
+
+
+
