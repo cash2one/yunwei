@@ -1,0 +1,271 @@
+
+#查看进程
+show processlist;
+
+
+
+
+
+select * from zifu limit 3 into outfile '/tmp/zifu.txt';
+
+LOAD DATA LOCAL INFILE 'zifu.txt' INTO TABL^Czifu;
+
+
+
+
+
+检查表
+mysqlcheck -p`cat /data/save/mysql_root` -A
+
+myisamchk *MYI //需要停库检查
+
+
+
+
+
+清理 mysql-bin
+
+show binary logs;
+purge binary logs to 'mysql-bin.000016'; 清理之前的
+
+
+
+
+mysql> show binary logs;
++------------------+------------+
+| Log_name         | File_size  |
++------------------+------------+
+| mysql-bin.000007 |          0 |
+| mysql-bin.000008 | 1073747214 |
+| mysql-bin.000009 | 1073743502 |
+| mysql-bin.000010 | 1073743151 |
+| mysql-bin.000011 | 1073744794 |
+| mysql-bin.000012 | 1073743590 |
+| mysql-bin.000013 | 1063370752 |
+| mysql-bin.000014 | 1073743735 |
+| mysql-bin.000015 |  646901147 |
+| mysql-bin.000016 |      26208 |
++------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> purge binary logs to 'mysql-bin.000016';
+Query OK, 0 rows affected, 1 warning (0.26 sec)
+
+mysql> show binary logs;                       
++------------------+-----------+
+| Log_name         | File_size |
++------------------+-----------+
+| mysql-bin.000016 |     33326 |
++------------------+-----------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+建议大家对待MyISAM引擎表，千万小心，别轻易用repair命令和myisamchk工具，小心丢数据！
+
+要用之前，也必须先进行文件级别的备份！
+
+没有办法找回来，除非你做了文件级别的备份
+
+OPTIMIZE LOCAL TABLE tablename
+
+另一方面，修复选项，虽然通常也是安全的，但是它对你的数据文件的更改是无法撤消的。因为这个原因，我们强烈推荐你试图修复一个被破坏的表文件时首先做个备份，并确保在制作这个备份之前你的MySQL服务是关闭的。
+
+
+　　这三种修复方法如下所示：
+
+　　myisamchk --recover --quick /path/to/tblName
+
+　　myisamchk --recover /path/to/tblName
+
+　　myisamchk --safe-recover /path/to/tblName
+
+　　第一种是最快的，用来修复最普通的问题;而最后一种是最慢的，用来修复一些其它方法所不能修复的问题
+
+
+
+
+
+
+mysqldump
+
+（1）导出整个数据库(包括数据库中的数据）
+
+    mysqldump -u username -p dbname > dbname.sql    
+
+（2）导出数据库结构（不含数据）
+
+    mysqldump -u username -p -d dbname > dbname.sql    
+
+（3）导出数据库中的某张数据表（包含数据）
+
+    mysqldump -u username -p dbname tablename > tablename.sql    
+
+（4）导出数据库中的某张数据表的表结构（不含数据）
+
+    mysqldump -u username -p -d dbname tablename > tablename.sql  
+
+
+
+
+
+
+
+
+
+---------------mysql 备份 还原--------------
+备份test库
+mysqldump -h 127.0.0.1 -ugame -pExia@LeYou -P 5001 test > /data/backup/test.sql
+
+
+还原:方法一
+1：创建数据库  create database test;
+2：进入数据库  use test;
+3：导入数据库  source /data/backup/test.sql
+
+备份表
+mysqldump　-uroot　-p　-B　数据库名　--table　表名　>　xxx.sql　
+
+导入:方法二
+mysql -h127.0.0.1 -P5001 -uroot -p密码 -e 'CREATE DATABASE IF NOT EXISTS `数据库`CHARACTER SET utf8 COLLATE utf8_general_ci'
+mysql -h127.0.0.1 -P5001 -uroot -p密码 -D 数据库 < xxx.sql
+
+
+
+
+
+增量备份
+
+备份二进制文件
+mysql-bin.000011  //里面每一条语句都有一个时间与pos
+
+
+
+
+
+################################二进制恢复################################
+
+查看：
+SHOW BINLOG EVENTS \G
+
+
+二进制恢复：
+//按时间恢复
+1：mysqlbinlog  --no-defaults --stop-datetime='2015-03-12 03:25:15' -vv mysql-bin.000002 |mysql -pYlSg@LeYou -S /tmp/mysql_5001.sock
+#只加入终止时间
+
+//mysqlbinlog  mysql-bin.000002 --stop-datetime='2015-03-12 03:25:15' |mysql -pYlSg@LeYou -S /tmp/mysql_5001.sock
+
+
+
+2：mysqlbinlog  --no-defaults --start-datetime='2015-03-12 03:24:15' --stop-datetime='2015-03-12 03:25:15' -vv mysql-bin.000002 |mysql -pYlSg@LeYou -S /tmp/mysql_5001.sock
+#加入开始与终止时间
+
+//按位置恢复
+3：mysqlbinlog mysql-bin.000002 --stop-position="450" |mysql -pYlSg@LeYou -S /tmp/mysql_5001.sock
+
+4：mysqlbinlog  mysql-bin.000002 --stop-position="3222" --start-position="107"|mysql -pYlSg@LeYou -S /tmp/mysql_5001.sock 
+
+
+
+
+
+################################删除MYSQL BIN-LOG 日志 ################################
+
+mysql> show binary logs;
+
+2.删除bin-log(删除mysql-bin.000063之前的而没有包含mysql-bin.000063)
+mysql> purge binary logs to 'mysql-bin.000063';
+
+
+
+
+################################增删改查################################
+
+
+
+ALTER 语句修改数据表 
+
+1.删除列
+#ALTER TABLE TABLE_NAME DROP COLUMN COLUMN_NAME;
+语法:ALTER TABLE rcd_charm_brand DROP COLUMN `op_type`;
+//在rcd_charm_brand表中删除op_type列
+
+2.插入列
+语法:ALTER TABLE TABLE_NAME ADD COLUMN_NAME DATATYPE; 
+ALTER TABLE rcd_charm_brand ADD COLUMN `op_type` tinyint(2) NOT NULL DEFAULT '0' COMMENT '操作类型.1-烙神， 2-突破' AFTER `old_lay`;
+//在表rcd_charm_brand插入op_type列要在old_lay列之后(after)
+
+
+ALTER TABLE game_account ADD COLUMN `isbind` int(11) NOT NULL DEFAULT '0' COMMENT '是否绑定账号' AFTER `server_id`;
+ALTER TABLE game_account ADD COLUMN `server_id` varchar(32) DEFAULT '0' COMMENT '服务器编号'  AFTER `id`;
+
+
+
+
+
+
+
+
+
+
+
+3.修改列名
+语句:ALTER TABLE TABLE_NAME RENAME COLUMN OLD_COLUMN_NAME TO NEW_COLUMN_NAME;
+
+4.修改数据表名
+语句:ALTER TABLE OLD_TABLE_NAME RENAME TO NEW_TABLE_NAME; 
+ALTER TABLE rcd_charm_brand RENAME TO rcd_charm; 
+//把表rcd_charm_brand修改rcd_charm
+
+
+
+5.创建
+create table test(id int(4) not null primary key auto_increment, name char(24) not null);
+
+6.插入
+insert into test(id,name) values("","aaa");
+
+
+
+
+
+
+
+
+
+################################同步################################
+
+
+修改同步主的服务器------------------------------------------------------同步主                
+CHANGE MASTER TO
+  MASTER_HOST='58.215.165.76',
+  MASTER_USER='game',
+  MASTER_PASSWORD='Exia@LeYou',
+  MASTER_PORT=5001,
+  MASTER_LOG_FILE='mysql-bin.001354',
+  MASTER_LOG_POS=119384503,
+  MASTER_CONNECT_RETRY=10;
+
+
+
+
+
+CHANGE MASTER TO
+MASTER_HOST='10.10.172.12',
+MASTER_USER='root',
+MASTER_PASSWORD='9e5c702f',
+MASTER_PORT=5001,
+MASTER_CONNECT_RETRY=10;
+
+################################清表################################
+truncate table game_account;
+
+

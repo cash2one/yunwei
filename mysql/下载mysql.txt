@@ -1,0 +1,8 @@
+
+
+#5.6 最新版本
+http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.27.tar.gz
+
+
+#5.5 最新版本
+http://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.46.tar.gz

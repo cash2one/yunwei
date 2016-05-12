@@ -1,0 +1,20 @@
+1、禁用SELinux（重启后依然生效）
+修改/etc/sysconfig/selinux
+更改其中的SELINUX项的值就可以关闭和启用SELinux服务了。
+修改成  SELINUX=disable     禁用SeLinux
+修改成  SELINUX=enforcing   使用SeLinux
+
+或
+     vi /etc/selinux/conf
+     set SELINUX=disabled
+ 
+2、不重启让其生效
+    /usr/sbin/setenforce 0 立刻关闭 SELINUX
+
+    /usr/sbin/setenforce 1 立刻启用 SELINUX
+
+3，加到系统默认启动里面
+
+　　echo "/usr/sbin/setenforce 0" >> /etc/rc.local
+
+　　echo "/usr/sbin/setenforce 0" >> /etc/rc.local

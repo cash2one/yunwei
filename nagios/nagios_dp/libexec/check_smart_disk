@@ -1,0 +1,60 @@
+#!/bin/bash
+case "$1" in
+ -d)
+ if [ $# -ne 2 ]
+# then echo "usage err"
+#  exit 1
+#跳出循环，有利于nrpe的参数设置，利于nagios监控
+ then break
+ fi
+ shift
+ DISK=$1
+ if [ ! -b $DISK ]
+  then  echo "no DISK in $DISK"
+  exit 1
+ fi
+;;
+ 
+*)
+#自动检测sda或者sdb，或者用-d指定sda或者sdb
+if [  -b '/dev/sda' ]
+         then DISK='/dev/sda'
+        else
+                if [  -b /dev/sdb ]
+                 then DISK=/dev/sdb
+                else
+   echo "no DISK in sda or sdb"
+                fi
+fi
+;;
+esac
+ 
+if [  -b /dev/sda ]
+                then DISK=/dev/sda
+        else
+                if [  -b /dev/sdb ]
+                        then DISK=/dev/sdb
+                else
+                        echo "no DISK in sda or sdb"
+                fi
+fi
+#echo $DISK
+stat=`/usr/sbin/smartctl -l selftest $DISK|grep "Failed in segment"|wc -l`
+#echo $stat
+if [ $stat -eq 0 ];then
+DISK_HEALTH=" OK"
+else
+DISK_HEALTH=" $stat wrong place"
+fi
+#echo $DISK_HEALTH
+if [ "$DISK_HEALTH" = " OK" ]|| [  "$DISK_HEALTH" = " PASSED" ]
+then
+ msg="OK"
+ sta=0
+else
+ msg="CRITICAL"
+ sta=2
+fi
+ 
+echo " $DISK $DISK_HEALTH;$sta"
+exit $sta

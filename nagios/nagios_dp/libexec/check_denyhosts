@@ -1,0 +1,17 @@
+#!/bin/sh
+#check_disk_nrpe writted by xly
+
+ST_OK=0
+ST_WR=1
+ST_CR=2
+ST_UK=3
+
+if [ `ps aux|grep 'python /usr/bin/denyhosts.py --daemon --config=/usr/share/denyhosts/denyhosts.cfg'|grep -v grep|wc -l` -eq 1 ]
+then
+ echo "OK- denyhosts is running"
+ exit 
+else
+ echo "WARNING- denyhosts is not running"
+ service denyhosts start
+ exit 
+fi

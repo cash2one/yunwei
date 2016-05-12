@@ -1,0 +1,67 @@
+150826 06:56:29 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
+150826 06:56:29 mysqld_safe Starting mysqld daemon with databases from /data/mysql_data/
+150826  6:56:29 [Warning] Can't create test file /data/mysql_data/bogon.lower-test
+150826  6:56:29 [Warning] Can't create test file /data/mysql_data/bogon.lower-test
+^G/usr/libexec/mysqld: File './mysql-bin.index' not found (Errcode: 13)
+
+
+
+ 解决方法如下:
+
+#在终端中先输入下面这一行
+
+chown -R mysql:mysql /home/data/mysql
+#在输入下面的一行就OK了
+
+chcon -R -t mysqld_db_t /home/mysql
+
+#重启下MYSQL试试~
+
+/etc/init.d/mysqld restart
+
+
+
+
+
+
+
+150827  4:47:01 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.host' doesn't exist
+
+解决：
+初始化数据库
+mysql_install_db --user=mysql
+
+
+
+
+
+mysqlbinlog: unknown variable 'default-character-set=utf8'
+#client 默认添加了 utf-8
+
+
+mysqlbinlog --no-defaults mysql-bin.000737
+
+
+
+
+
+#检查表有需要修复也出现
+
+1 client is using or hasn't closed the table properly
+
+修复1：
+处理方法：repair table 表名
+check table global_data;
+
+关闭mysql
+进行修复
+
+官网：
+当你运行myisamchk时，必须确保其它程序不使用表。否则，当你运行myisamchk时，会显示下面的错误消息：
+
+warning: clients are using or haven't closed the table properly
+
+这说明你正尝试检查正被另一个还没有关闭文件或已经终止而没有正确地关闭文件的程序(例如mysqld服务器)更新的表。
+
+如果mysqld正在运行，你必须通过FLUSH TABLES强制清空仍然在内存中的任何表修改。当你运行myisamchk时，必须确保其它程序不使用表。避免该问题的最容易的方法是使用CHECK TABLE而不用myisamchk来检查表
+

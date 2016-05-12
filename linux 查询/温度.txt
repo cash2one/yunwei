@@ -1,0 +1,8 @@
+
+sensors
+
+
+
+监控+温度
+yum install lm_sensors
+pip install pysensors

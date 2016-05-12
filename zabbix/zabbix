@@ -1,0 +1,44 @@
+./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --with-mysql=/usr/local/mysql --with-mysqli=/usr/local/mysql/bin/mysql_config --with-mysql-sock=/tmp/mysql.sock --with-pdo-mysql=/usr/local/mysql --with-gd --with-png-dir=/usr/local/libpng --with-jpeg-dir=/usr/local/jpeg --with-freetype-dir=/usr/local/freetype --with-xpm-dir=/usr/ --with-vpx-dir=/usr/local/libvpx/ --with-zlib-dir=/usr/local/zlib --with-t1lib=/usr/local/t1lib --with-iconv --enable-libxml --enable-xml --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --enable-opcache --enable-mbregex --enable-fpm --enable-mbstring --enable-ftp --enable-gd-native-ttf --with-openssl --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --without-pear --with-gettext --enable-session --with-mcrypt --with-curl --enable-ctype
+
+
+./configure --prefix=/usr/local/php \
+--with-config-file-path=/etc \
+--with-mysql=mysqlnd  \
+--with-pdo-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
+--with-iconv-dir=/usr/local/libiconv \
+--with-freetype-dir \
+--with-jpeg-dir \
+--with-png-dir \
+--enable-zip --with-zlib \
+--enable-safe-mode \
+--with-gd \
+--enable-gd-native-ttf \
+--disable-rpath  \
+--enable-bcmath \
+--enable-shmop \
+--enable-sysvsem \
+--with-curl \
+--with-curlwrappers \
+--enable-mbstring \
+--with-mcrypt \
+--disable-ipv6 \
+--enable-static \
+--enable-maintainer-zts \
+--enable-sockets \
+--enable-soap \
+--with-openssl \
+--enable-zend-multibyte \
+--without-pdo-sqlite \
+--without-sqlite \
+--enable-fpm \
+--enable-ctype \
+--with-gettext
+
+
+./configure --user=www --group=www \
+--prefix=/usr/local/nginx \
+--with-http_stub_status_module \
+--with-google_perftools_module \
+--with-pcre \
+--with-http_ssl_module

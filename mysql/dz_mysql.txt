@@ -1,0 +1,19 @@
+
+
+
+[step 步骤 2] 开始备份数据库
+[调试] ssh服务器: en_s1命令:ssh -o StrictHostKeyChecking=no -o GSSAPIAuthentication=no  -p 22 root@52.76.13.29 "cd /data/server/en_s1; ./script/merge/backup_db_for_merge.sh en 1 backup_for_merge_1442993976 &"
+ok
+ok:dzmo_admin_en_1_bak_20150923-1539.tar.gz
+[调试] ssh服务器: en_s2命令:ssh -o StrictHostKeyChecking=no -o GSSAPIAuthentication=no  -p 22 root@52.74.174.169 "cd /data/server/en_s2; ./script/merge/backup_db_for_merge.sh en 2 backup_for_merge_1442993976 &"
+ok
+ok:dzmo_admin_en_2_bak_20150923-1541.tar.gz
+[信息] 备份的数据库数目:2
+[调试] ssh服务器: en_s1命令:ssh -o StrictHostKeyChecking=no -o GSSAPIAuthentication=no  -p 22 root@52.76.13.29 "cd /data/server/en_s1; ./script/merge/backup_db_for_merge.sh backup_for_merge_1442993976"
+backup finish
+[调试] ssh服务器: en_s2命令:ssh -o StrictHostKeyChecking=no -o GSSAPIAuthentication=no  -p 22 root@52.74.174.169 "cd /data/server/en_s2; ./script/merge/backup_db_for_merge.sh backup_for_merge_1442993976"
+backup finish
+[step 步骤 3] 将数据库拷贝到目标服务器
+[调试] 被合并的服务器ip列表: 172.31.23.191:22
+[调试] 合并服务器主服务器en_s1 ip:52.76.13.29(内部ip:172.31.29.241)
+[调试] ssh服务器: en_s1命令:ssh -o StrictHostKeyChecking=no -o GSSAPIAuthentication=no  -p 22 root@52.76.13.29 "cd /data/server/en_s1; ./script/merge/scp_db_for_merge.sh ./db_merge  172.31.23.191:22 && echo -n "ok""

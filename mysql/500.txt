@@ -1,0 +1,18 @@
+
+
+
+
+php 出现 500 服务器内部错误
+
+可能php 与mysql 连接有问题
+
+yum -y install php php-pecl-memcache.x86_64 php-mysql.x86_64 php-gd.x86_64 php-mbstring.x86_64
+
+
+
+
+
+
+
+
+

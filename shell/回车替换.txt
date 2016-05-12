@@ -1,0 +1,15 @@
+
+
+
+
+
+cat foo.txt |awk -v RS=''  '{gsub("\n"," "); print }'
+
+
+
+
+
+
+
+
+

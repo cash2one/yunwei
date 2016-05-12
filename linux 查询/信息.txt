@@ -1,0 +1,21 @@
+
+
+
+export PS1='[\u@\[\e[32m\]center_s2_\[\e[0m\]\[\e[33m\]118.26.237.195\[\e[0m\] \W]\$ '
+
+查看连接数
+netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+
+
+
+cat /proc/cpuinfo
+查看cpu信息
+
+cat /etc/issue
+查看linux 版本
+
+
+cat /proc/version
+
+
+lsblk 盘信息

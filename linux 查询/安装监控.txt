@@ -1,0 +1,12 @@
+# rpm -ivh http://fr2.rpmfind.net/linux/epel/6/x86_64/epel-release-6-8.noarch.rpm
+# yum install python-pip python-devel
+# pip-python install glances
+
+如果没有安装argparse模块需要安装一下否则运行glances会报错
+easy_install   argparse
+
+
+pip install glances
+
+
+

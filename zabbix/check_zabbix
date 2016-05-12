@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#check zabbix server writed by yyr
+
+service zabbix_server status 1>/dev/null 2>&1
+if [ "$?" -eq 0 ];then
+	echo "OK: zabbix server now running"
+	exit 0
+else
+	echo "Critical: zabbix server is not running"
+	exit 1
+fi

@@ -1,0 +1,22 @@
+
+
+
+
+wget   http://www.rarlab.com/rar/rarlinux-x64-4.2.0.tar.gz
+
+tar xf rarlinux-x64-4.2.0.tar.gz -C /usr/local 
+
+ln -s /usr/local/rar/rar /usr/local/bin/rar
+ln -s /usr/local/rar/unrar /usr/local/bin/unrar
+
+wget http://www.rarsoft.com/rar_CN/rarlinux-3.9.3.tar.gz 
+
+
+
+
+
+
+
+
+
+rar x tools.rar

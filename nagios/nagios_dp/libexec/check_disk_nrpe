@@ -1,0 +1,123 @@
+#!/bin/sh
+#check_disk_nrpe writted by xly
+
+ST_OK=0
+ST_WR=1
+ST_CR=2
+ST_UK=3
+
+print_help() {
+    echo "$PROGNAME -w INT -c INT"
+    echo "Options:"
+    echo "  -w/--warning)"
+    echo "     Sets a warning number"
+    echo "  -c/--critical)"
+    echo "     Sets a critical level for io"
+    exit $ST_UK
+}
+
+while test -n "$1"; do
+    case "$1" in
+        -help|-h)
+            print_help
+            exit $ST_UK
+            ;;
+        --warning|-w)
+            warning=$2
+		shift
+            ;;
+        --critical|-c)
+            critical=$2
+		shift
+            ;;
+        *)
+            echo "Unknown argument: $1"
+            print_help
+            exit $ST_UK
+            ;;
+        esac
+	shift
+done
+
+get_wcdiff() {
+    if [ ! -z "$warning" -a ! -z "$critical" ]
+    then
+        wclvls=1
+
+        if [ ${warning} -gt ${critical} ]
+        then
+            wcdiff=1
+        fi
+    elif [ ! -z "$warning" -a -z "$critical" ]
+    then
+        wcdiff=2
+    elif [ -z "$warning" -a ! -z "$critical" ]
+    then
+        wcdiff=3
+    fi
+}
+
+val_wcdiff() {
+    if [ "$wcdiff" = 1 ]
+    then
+        echo "Please adjust your warning/critical thresholds. The warning \
+must be lower than the critical level!"
+        exit $ST_UK
+    elif [ "$wcdiff" = 2 ]
+    then
+        echo "Please also set a critical value when you want to use \
+warning/critical thresholds!"
+        exit $ST_UK
+    elif [ "$wcdiff" = 3 ]
+    then
+        echo "Please also set a warning value when you want to use \
+warning/critical thresholds!"
+        exit $ST_UK
+    fi
+}
+
+
+get_status() {
+if [ `df -h |grep " /data" |wc -l` -eq 1 ];then
+ disk_stat=(`df -h | gawk '$NF == "/data" {print $0}'`)
+  if [ `echo ${disk_stat[4]}|grep data |wc -l ` -eq 1 ];then
+ empty_space=${disk_stat[2]}
+ status=${disk_stat[3]}
+  else
+ empty_space=${disk_stat[3]}
+ status=${disk_stat[4]}
+  fi
+else
+ disk_stat=(`df -h | gawk '$NF == "/" {print $0}'`)
+ if [ `echo ${disk_stat[0]} |grep "/" |wc -l` -eq 0 ];then
+  empty_space=${disk_stat[2]}
+  status=${disk_stat[3]}
+ else
+  empty_space=${disk_stat[3]}
+  status=${disk_stat[4]}
+ fi
+fi
+	status=`echo $status|cut -d'%' -f1`
+}
+
+# Here we go!
+get_wcdiff
+val_wcdiff
+get_status
+#echo $status
+#echo  $status1   $warning1   $critical1
+if [ -n "$warning" -a -n "$critical" ]
+then
+    if [ `expr $status \> $warning` -eq 1 -a `expr  $status \< $critical` -eq 1 ]
+    then
+        echo "WARNING- disk_empty_space is $empty_space used $status %"
+        exit $ST_WR
+    elif [ `expr $status \> $critical` -eq 1 ]
+    then
+        echo "CRITICAL- disk_empty_space is $empty_space used $status %"
+        exit $ST_CR
+    else
+        echo "OK- disk_empty_space is $empty_space used $status %"
+        exit $ST_OK
+    fi
+fi

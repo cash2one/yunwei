@@ -1,0 +1,88 @@
+一.Zabbix+Postfix邮件告警配置笔记
+postfix: 系统自带
+1.本机若安装sendmail，则必须关闭并卸载。
+
+# service sendmail stop
+# chkconfig sendmail off
+# rpm -e sendmail --nodeps
+
+2.安装postfix （centos6.3下默认yum源，默认postfix系统自带）
+# yum install postfix -y
+
+
+更改postfix配置文件中的参数
+
+postconf -e myhostname=mail.zabbix.example.cn
+postconf -e myorigin=zabbix.example.cn
+postconf -e mydomain=zabbix.example.cn
+postconf -e mydestination=localhost
+postconf -e mynetworks=127.0.0.0/8
+配置完成会添加参数到/etc/postfix/main.cf下末行
+
+
+#这一步可以不加
+# vi /etc/hosts
+添加一行：
+------------
+127.0.0.1 mail.zabbix.example.cn zabbix.example.cn
+
+
+重启postfix服务
+# service postfix restart
+测试发邮件是否成功
+echo "111111"|mail -s "test" xxxx@qq.com
+动态查看发送的邮件日志
+# tail -f /var/log/maillog
+若远程邮箱收到，则配置成功
+
+二.配置zabbix告警发送邮件到远程邮箱
+1.进入：ZABBIX-管理-示警媒体类型，点击右上角创建示警媒体类型,或者直接点击Email
+  名称:Email
+  类型:电子邮件
+  SMTP伺服器:mail.zabbix.example.cn
+  SMTP HELO:zabbix.example.cn
+  SMTP电邮:root@zabbix.example.cn
+  已启用
+  上面的配置和postfix的main.cf的域名一直
+2.创建用户
+  管理-用户-成员Admin (Zabbix Administrator)-示警媒介-添加(如果多个用户邮件就添加多个)
+                                                      类型:Email
+                                                      收件人:xxxxy@xx.com
+                  其他默认
+3.设置Zabbix触发报警的动作
+组态-动作-创建动作
+这里可以自己填写下面的或者直接选择系统默认的
+
+名称：Action-Email
+默认接收人：故障{TRIGGER.STATUS},服务器:{HOSTNAME1}发生:{TRIGGER.NAME}故障!
+默认信息：
+告警主机:{HOSTNAME1}
+告警时间:{EVENT.DATE} {EVENT.TIME}
+告警等级:{TRIGGER.SEVERITY}
+告警信息:{TRIGGER.NAME}
+告警项目:{TRIGGER.KEY1}
+问题详情:{ITEM.NAME}:{ITEM.VALUE}
+当前状态:{TRIGGER.STATUS}:{ITEM.VALUE1}
+事件ID:{EVENT.ID}
+恢复信息：打钩
+恢复主旨：恢复{TRIGGER.STATUS},服务器:{HOSTNAME1}:TRIGGER.NAME}已恢复!
+恢复信息：
+告警主机:{HOSTNAME1}
+告警时间:{EVENT.DATE} {EVENT.TIME}
+告警等级:{TRIGGER.SEVERITY}
+告警信息:{TRIGGER.NAME}
+告警项目:{TRIGGER.KEY1}
+问题详情:{ITEM.NAME}:{ITEM.VALUE}
+当前状态:{TRIGGER.STATUS}:{ITEM.VALUE1}
+事件ID:{EVENT.ID}
+已启用：打钩
+切换到操作选项
+新的
+操作类型：送出信息
+送到用户：添加
+默认信息：打钩
+选择用户：Admin
+选择
+仅送到：Email (这个就是当初创建的那个用户)
+
+配置完成如果有邮件警告可以查看zabbix的管理-警报或者查看/var/log/maillog

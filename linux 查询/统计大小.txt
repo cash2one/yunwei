@@ -1,0 +1,2 @@
+
+ls -l | grep 'MYI$' | awk -F ' ' '{print$5}'|awk -v sum=0 '{sum += $NF} END{print sum}'

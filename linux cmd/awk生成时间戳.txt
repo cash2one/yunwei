@@ -1,0 +1,4 @@
+
+
+
+echo "119_147_176_74_all_database_2015-11-24.sql.gz"|awk -F_ '{gsub(/\..+/,"",$NF);cmd="date -d "$NF" +%s";cmd|getline d;print d}'

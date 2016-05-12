@@ -1,0 +1,26 @@
+yum install smart*
+
+
+smartctl -i /dev/sdb //是否开启
+
+smartctl -H /dev/sdb  //检查健康状态
+
+smartctl -l error /dev/sdb  //收集所有错误
+
+smartctl -l selftest /dev/sdb
+
+
+坏道监测
+badblocks -s -v  /dev/sda1
+
+
+
+[root@Game2 vn_s2]# smartctl -l selftest /dev/sdb
+smartctl 5.43 2012-06-30 r3573 [x86_64-linux-2.6.32-431.el6.x86_64] (local build)
+Copyright (C) 2002-12 by Bruce Allen, http://smartmontools.sourceforge.net
+
+=== START OF READ SMART DATA SECTION ===
+SMART Self-test log structure revision number 1
+Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
+# 1  Short offline       Completed: read failure       30%       329         9652257
+# 2  Extended offline    Completed: read failure       90%       329         9652257      //出现错误数

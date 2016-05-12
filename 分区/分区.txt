@@ -1,0 +1,48 @@
+	亚马逊服务器磁盘分区与安装环境
+
+一：磁盘分区
+	1:检查分区情况
+		df -h
+	2：查看磁盘
+		fdisk  -l
+	3:开始分区(第2块硬盘)  
+		fdisk /dev/xvdb   #不是所有都是/dev/xvdb
+	分区过程：
+		n #新建分区
+		p #主分区
+		1 #第一分区
+		p #查看分区情况
+		w #保存
+		q #退出
+	4：格式化
+		partprobe
+		mkfs -t ext4 /dev/xvdb1
+	5：挂载到/data
+mkdir /data
+mount /dev/xvdb1 /data
+	6:保存至配置文件中
+		vim /etc/fstab
+		 /dev/xvdb1  /data    ext4    defaults     0  0   #最后一行加入
+
+
+二：安装环境
+	1:安装上传软件
+		yum install -y lrzsz
+	2:将安装环境脚本上传
+		install_env.sh
+	3:开始安装环境
+		./install_env.sh
+	4:将.vimrc 上传/root/下
+		.vimrc
+
+
+三：修改时区
+	1：查看时区
+		date -R 
+	2：调整时区(上海)
+		ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+	3: mysql 时区设置（与操作系统时区保持一致）
+		查看当前时区：show variables like '%time%'; 
+		time_zone=SYSTEM表示mysql取操作系统时区。检查system_time_zone是否跟操作系统时区一致，如果不一致重启mysql。
+		/etc/init.d/mysqld restart

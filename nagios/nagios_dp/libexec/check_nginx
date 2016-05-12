@@ -1,0 +1,114 @@
+#!/bin/sh
+#check_nginx writted by xly
+
+ST_OK=0
+ST_WR=1
+ST_CR=2
+ST_UK=3
+
+print_help() {
+    echo "$PROGNAME -w INT -c INT"
+    echo "Options:"
+    echo "  -w/--warning)"
+    echo "     Sets a warning number"
+    echo "  -c/--critical)"
+    echo "     Sets a critical level for io"
+    exit $ST_UK
+}
+
+while test -n "$1"; do
+    case "$1" in
+        -help|-h)
+            print_help
+            exit $ST_UK
+            ;;
+        --warning|-w)
+            warning=$2
+		shift
+            ;;
+        --critical|-c)
+            critical=$2
+		shift
+            ;;
+        *)
+            echo "Unknown argument: $1"
+            print_help
+            exit $ST_UK
+            ;;
+        esac
+	shift
+done
+
+get_wcdiff() {
+    if [ ! -z "$warning" -a ! -z "$critical" ]
+    then
+        wclvls=1
+
+        if [ ${warning} -gt ${critical} ]
+        then
+            wcdiff=1
+        fi
+    elif [ ! -z "$warning" -a -z "$critical" ]
+    then
+        wcdiff=2
+    elif [ -z "$warning" -a ! -z "$critical" ]
+    then
+        wcdiff=3
+    fi
+}
+
+val_wcdiff() {
+    if [ "$wcdiff" = 1 ]
+    then
+        echo "Please adjust your warning/critical thresholds. The warning \
+must be lower than the critical level!"
+        exit $ST_UK
+    elif [ "$wcdiff" = 2 ]
+    then
+        echo "Please also set a critical value when you want to use \
+warning/critical thresholds!"
+        exit $ST_UK
+    elif [ "$wcdiff" = 3 ]
+    then
+        echo "Please also set a warning value when you want to use \
+warning/critical thresholds!"
+        exit $ST_UK
+    fi
+}
+
+
+get_status() {
+    #status=`netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'|grep ESTABLISHED |awk '{print $NF}' `
+    live=`ps aux|grep '/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf'|wc -l`
+}
+
+
+# Here we go!
+#get_wcdiff
+#val_wcdiff
+get_status
+#echo  $status1   $warning1   $critical1
+
+#if [ -n "$warning" -a -n "$critical" ]
+#then
+	if [ $live -eq 1 ];then
+		echo "CRITICAL- nginx is down"
+		exit $ST_CR
+	else 
+		if [ $live -eq 2 ];then
+    			#if [ `expr $status \> $warning` -eq 1 -a `expr  $status \< $critical` -eq 1 ];then
+    	    		#	echo "WARNING- nginx connected number is $status "
+    	    		#	exit $ST_WR
+    			#else
+			#	if [ `expr $status \> $critical` -eq 1 ];then
+    	   		#	echo "CRITICAL- nginx connected number is $status "
+    	   		#	exit $ST_CR
+   	 		#	else
+   	     		#	echo "OK- nginx connected number is $status"
+   	     			echo "OK- nginx is up"
+   	     			exit $ST_OK
+			#	fi
+   	 		#fi
+		fi
+	fi
+#fi

@@ -1,0 +1,41 @@
+yum -y install perl perl-devel libaio libaio-devel perl-Time-HiRes perl-DBD-MySQL
+
+rpm -ivh  ...
+
+
+innobackupex --user=game --password=Exia@LeYou --socket=/tmp/mysql_5001.sock --defaults-file=/etc/my_5001.cnf  backup/
+
+service mysql_5002 stop
+rm -rf /data/database/mysql/5002/
+mv backup/2015-08-22_02-52-28 /data/database/mysql/5002/
+
+chown mysql.mysql -R .
+
+service mysql_5002 start
+
+cat xtrabackup_binlog_info
+mysql-bin.000011        107
+
+CHANGE MASTER TO
+  MASTER_HOST='192.168.172.213',
+  MASTER_USER='game',
+  MASTER_PASSWORD='Exia@LeYou',
+  MASTER_PORT=5001,
+  MASTER_LOG_FILE='mysql-bin.000011',
+  MASTER_LOG_POS=107,
+  MASTER_CONNECT_RETRY=10;
+
+slave start;
+show slave status\G
+
+
+
+
+
+
+log:
+
+mysami 会锁表
+
+
+

@@ -1,0 +1,21 @@
+UserParameter=mysql.ping[*],mysqladmin -u$1 -p$2  ping  |  grep -c  alive
+
+如下参数用于监控MYSQL，并且可以传递用户名和密码
+mysql.ping[zabbix,our_password] 
+
+
+
+
+zabbix  timer每30秒会重新计算一次
+
+
+
+
+
+
+
+
+
+
+
+

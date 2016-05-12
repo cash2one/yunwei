@@ -1,0 +1,242 @@
+
+
+
+cd /data/install_packages/source_packages
+
+tar xf FCGI-0.74.tar.gz  -C ../compile/
+cd ../compile/
+cd FCGI-0.74 
+perl Makefile.PL  
+make && make install 
+ 
+cd ../../source_packages
+
+tar xf FCGI-ProcManager-0.24.tar.gz -C ../compile/
+cd ../compile/
+cd FCGI-ProcManager-0.24/ 
+perl Makefile.PL  
+make  
+make install 
+
+
+cd ../../source_packages
+
+tar xf IO-All-0.44.tar.gz -C ../compile/
+cd ../compile/
+cd IO-All-0.44/
+perl Makefile.PL  
+make  
+make install
+
+
+
+==========================
+cd /usr/local/services/nginx/
+rz perl-fcgi.pl
+chmod 755 perl-fcgi.pl
+./perl-fcgi.pl -l /tmp/nginx-fcgi.log -pid /tmp/nginx-fcgi.pid -S /tmp/nginx-fcgi.sock
+chmod 777 /tmp/nginx-fcgi.sock 
+==========================
+
+yum -y install gd-devel
+
+useradd -s /sbin/nologin nagios
+groupadd nagcmd
+usermod -a -G nagcmd nagios
+
+cd /data/install_packages/source_packages
+tar xf nagios-4.0.8.tar.gz -C ../compile/
+cd ../compile/nagios-4.0.8/
+./configure --prefix=/usr/local/nagios --with-command-group=nagcmd --with-user=nagios
+make all
+make install
+make install-init
+make install-config
+make install-commandmode
+chkconfig --add nagios
+chkconfig nagios on
+
+
+tar xf nagios-plugins-1.4.15.tar.gz  -C ../compile/
+cd ../compile/nagios-plugins-1.4.15/
+./configure --prefix=/usr/local/nagios --with-nagios-user=nagios --with-nagios-group=nagios
+make && make install
+
+
+cd ../../source_packages
+tar xf nrpe-2.8.1.tar.gz  -C ../compile/
+cd ../compile/nrpe-2.8.1/
+./configure
+make && make install
+cp sample-config/nrpe.cfg /usr/local/nagios/etc/
+
+
+
+
+
+htpasswd /usr/local/nagios/etc/htpasswd.users nagiosadmin
+
+
+
+server {
+        listen  8080;
+        server_name     192.168.172.206;
+        access_log      logs/nagios_access.log combined;
+        auth_basic "Nagios Access";
+        auth_basic_user_file /usr/local/nagios/etc/htpasswd.users;
+        location / {
+        root   /usr/local/nagios/share;
+        index  index.html index.htm index.php;
+                }
+        location ~ .*\.(php|php5)?$ {
+        root /usr/local/nagios/share;
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index index.php;
+        include fastcgi.conf;
+                }
+        location /nagios {
+            alias /usr/local/nagios/share;
+                }
+        location /cgi-bin/images {
+            alias /usr/local/nagios/share/images;
+                }
+        location /cgi-bin/stylesheets {
+            alias /usr/local/nagios/share/stylesheets;
+                }
+        location /cgi-bin {
+            alias /usr/local/nagios/sbin;
+                }
+        location ~ .*\.(cgi|pl)?$ {
+        gzip off;
+        root   /usr/local/nagios/sbin;
+        rewrite ^/nagios/cgi-bin/(.*)\.cgi /$1.cgi break;
+        fastcgi_pass  unix:/usr/local/nginx/logs/nginx-fcgi.sock;
+        fastcgi_param SCRIPT_FILENAME /usr/local/nagios/sbin$fastcgi_script_name;
+        fastcgi_index index.cgi;
+        fastcgi_param  REMOTE_USER        $remote_user;
+        fastcgi_param HTTP_ACCEPT_LANGUAGE en_US;
+        include fastcgi_params;
+        fastcgi_read_timeout   60;
+                }
+        }
+
+
+
+
+
+
+vim nrpe.cfg
+
+command[check_users]=/usr/local/nagios/libexec/check_users -w 5 -c 10
+command[check_load]=/usr/local/nagios/libexec/check_load -w 15,10,5 -c 30,25,20
+command[check_sda1]=/usr/local/nagios/libexec/check_disk -w 20 -c 10 -p /dev/sda1
+command[check_zombie_procs]=/usr/local/nagios/libexec/check_procs -w 5 -c 10 -s Z
+command[check_total_procs]=/usr/local/nagios/libexec/check_procs -w 150 -c 200 
+command[check_swap]=/usr/local/nagios/libexec/check_swap -w 20% -c 5%' /usr/local/nagios/etc/nrpe.cfg
+command[check_cpu_procs]=/usr/local/nagios/libexec/check_procs -w 50 -c 90 --metric=CPU' /usr/local/nagios/etc/nrpe.cfg
+command[check_df]=/usr/local/nagios/libexec/check_disk -w 20 -c 10' /usr/local/nagios/etc/nrpe.cfg
+
+echo '/usr/local/nagios/bin/nrpe -c /usr/local/nagios/etc/nrpe.cfg -d' >> /etc/rc.local
+
+
+/usr/local/nagios/bin/nrpe -c /usr/local/nagios/etc/nrpe.cfg -d
+
+关闭
+cat /var/run/nrpe.pid
+/usr/local/nagios/bin/nrpe -c /usr/local/nagios/etc/nrpe.cfg -d
+
+
+
+echo 'define command{
+command_name check_nrpe
+command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+}' >> /usr/local/nagios/etc/objects/commands.cfg
+
+
+
+
+
+
+
+客户端：
+useradd -M -s /sbin/nologin nagios
+tar xf nagios-plugins-1.4.15.tar.gz 
+cd nagios-plugins-1.4.15
+./configure --prefix=/usr/local/nagios --with-nagios-user=nagios --with-nagios-group=nagios
+make && make install
+cd ../
+tar xf nrpe-2.8.1.tar.gz 
+cd nrpe-2.8.1
+./configure
+make && make install
+mkdir /usr/local/nagios/etc
+cd /usr/local/nagios/etc
+cp sample-config/nrpe.cfg  /usr/local/nagios/etc/
+
+vim nrpe.conf
+172.31.0.178
+
+
+command[check_users]=/usr/local/nagios/libexec/check_users -w 5 -c 10
+command[check_load]=/usr/local/nagios/libexec/check_load -w 15,10,5 -c 30,25,20
+command[check_xvdb1]=/usr/local/nagios/libexec/check_disk -w 20 -c 10 -p /dev/xvdb1
+command[check_zombie_procs]=/usr/local/nagios/libexec/check_procs -w 5 -c 10 -s Z
+command[check_total_procs]=/usr/local/nagios/libexec/check_procs -w 150 -c 200
+command[check_swap]=/usr/local/nagios/libexec/check_swap -w 20% -c 5%' /usr/local/nagios/etc/nrpe.cfg
+command[check_cpu_procs]=/usr/local/nagios/libexec/check_procs -w 50 -c 90 --metric=CPU' /usr/local/nagios/etc/nrpe.cfg
+command[check_df]=/usr/local/nagios/libexec/check_disk -w 20 -c 10' /usr/local/nagios/etc/nrpe.cfg
+command[check_port_80]=/usr/local/nagios/libexec/check_tcp --port 80 -4 -w 2 -c 5 
+command[check_port_8000]=/usr/local/nagios/libexec/check_tcp --port 8000 -4 -w 2 -c 5 
+
+
+
+
+echo '/usr/local/nagios/bin/nrpe -c /usr/local/nagios/etc/nrpe.cfg -d' >> /etc/rc.local
+/usr/local/nagios/bin/nrpe -c /usr/local/nagios/etc/nrpe.cfg -d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://blog.linuxeye.com/312.html
+
+1.perl Makefile.PL
+
+Can't locate ExtUtils/MakeMaker.pm
+
+解决：yum install -y perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
+
+
+
+
+2.libmcrypt.so.4
+
+/data/install_packages/compile/php-5.3.10/sapi/cli/php: error while loading shared libraries: libmcrypt.so.4: cannot open shared object file: No such file or directory
+make: *** [ext/phar/phar.php] Error 127
+
+解决：ln -sf /usr/local/lib/libmcrypt.so.4 /usr/lib/libmcrypt.so.4
+
+
+
+
+3.
+It appears as though you do not have permission to view information you requested
+
+解决：
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+
+
+
+4.
+Error: Could not read object configuration data!
+
+解决：service nagios start

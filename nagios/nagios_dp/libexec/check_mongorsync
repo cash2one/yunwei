@@ -1,0 +1,71 @@
+#!/bin/sh
+#check_nginx writted by xly
+
+ST_OK=0
+ST_WR=1
+ST_CR=2
+ST_UK=3
+
+print_help() {
+    echo "$PROGNAME -w INT -c INT"
+    echo "Options:"
+    echo "  -w/--warning)"
+    echo "     Sets a warning number"
+    exit $ST_UK
+}
+
+while test -n "$1"; do
+    case "$1" in
+        -help|-h)
+            print_help
+            exit $ST_UK
+            ;;
+        --warning|-w)
+            warning=$2
+		shift
+            ;;
+        *)
+            echo "Unknown argument: $1"
+            print_help
+            exit $ST_UK
+            ;;
+        esac
+	shift
+done
+
+get_status() {
+slavemongo_port_all=`cat /data/database/jhl_*_*/mongo_slave/slave_mongod.conf |grep "^port"|awk '{print $3}'`
+if [ "$slavemongo_port_all" == "" ];then
+ echo "mongo_slave is not exist"
+ exit $ST_UK
+fi
+for slavemongo_port in ${slavemongo_port_all[@]}
+do
+ date1=`/usr/bin/mongo --port $slavemongo_port --eval "db.printSlaveReplicationInfo()"|grep syncedTo |cut -d':' -f2,3,4`
+ time1=`date -d "$date1" +%s`
+ time2=`date +%s`
+ status=`expr $time2 - $time1`
+ #echo status is $status
+ if [ ! -n $status ];then
+  result=$result" ;port $slavemongo_port date1 is $date1 ,status is null"
+ else
+  if [ $status -gt 600 ];then
+   result=$result" ;port $slavemongo_port WARNING- mongosync timeout is $status seconds"
+  else
+   result=$result" ;port $slavemongo_port OK- mongosync time is $status seconds "
+  fi
+ fi
+done
+}
+
+
+# Here we go!
+result=""
+get_status
+if [ `echo $result|grep timeout|wc -l` -gt 0 ];then
+ echo $result
+ exit $ST_WR
+else
+ echo $result
+fi
+
