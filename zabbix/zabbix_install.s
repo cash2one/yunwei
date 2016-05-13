@@ -269,3 +269,15 @@ chmod +s /bin/netstat
 
 
 
+
+
+
+
+
+//触发器：
+{listen port:net.tcp.listen[{#TCP_PORT}].last(0)}<>1
+
+
+
+
+
