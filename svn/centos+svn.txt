@@ -1,0 +1,87 @@
+
+
+
+环境：
+apache
+svn
+centos
+
+
+
+//安装httpd  svn  http svn 模块
+yum install -y httpd.x86_64 subversion mod_dav_svn.x86_64
+
+
+
+vim /etc/httpd/conf/httpd.conf
+
+Include conf.d/*.conf
+
+
+
+cat subversion.conf
+
+<Location /svn>
+   DAV svn                             #修改
+   SVNParentPath /data/svn             #修改
+#
+#   # Limit write permission to list of valid users.
+#   <LimitExcept GET PROPFIND OPTIONS REPORT>
+      # Require SSL connection for password protection.
+      # SSLRequireSSL
+
+      AuthType Basic
+      AuthName "svn"                                         #修改
+      AuthUserFile /etc/httpd/conf.d/svn.passwd              #修改
+      AuthzSVNAccessFile /etc/httpd/conf.d/svn.authz         #修改
+      Require valid-user
+#   </LimitExcept>
+</Location>
+
+
+//生成密码文件
+htpasswd -cm svn.passwd lupuxiao
+
+
+//权限设置
+cat svn.authz  
+[groups]
+admin = lupuxiao
+server = lupuxiao
+
+[admin:/]
+@admin = rw
+
+
+[server:/]
+@server = rw   #server 组有读写
+guest = r      #其它用户权限
+
+
+//创建多个版本库
+cd /data/svn/
+mkdir admin
+svnadmin create admin/
+cd ..
+mkdir server
+svnadmin create server/
+
+
+//启动
+/etc/init.d/httpd start
+
+//访问
+http://svn/admin
+
+
+
+##修改/etc/httpd/conf.d/svn.authz  无需重启httpd
+
+
+
+
+
+
+
+
+

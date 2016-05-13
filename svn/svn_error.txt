@@ -1,0 +1,10 @@
+
+
+
+1:Skipped 'client_android_test_new.sh' -- Node remains in conflict
+//出现冲突
+
+
+svn revert  client_android_test_new.sh
+svn up
+
