@@ -1,0 +1,164 @@
+注册：
+docker login
+//goooood
+//goooood
+
+
+#版本
+docker version
+
+#列出本地镜像
+docker images
+
+#搜索
+docker search centos
+
+#下载
+docker pull centos
+
+
+#上传
+docker push ouruser/sinatra
+
+
+
+#存出
+docker save -o ubuntu_14.04.tar ubuntu:14.04
+
+#载入
+sudo docker load --input ubuntu_14.04.tar
+或
+sudo docker load < ubuntu_14.04.tar
+
+
+
+
+
+#run  /bin/bash
+docker run centos /bin/bash
+
+
+docker run -t -i centos /bin/bash
+// docker run - 运行一个容器
+// -t  tty
+// -i 开发输入可以交互
+
+
+
+#输出hello world
+docker run centos /bin/echo "hello world"
+
+退出：
+ctrl+d
+exit
+
+查看：
+docker ps -a
+
+改变：
+docker diff <id>
+
+
+
+
+#为镜像改标签 tag
+docker tag 5db5f8471261 ouruser/sinatra:devel
+
+
+
+docker run -d centos /bin/bash -c "while true;do echo hello world;sleep 1;done"
+// -d  后台运行
+//2ea3643b83cd8eef06178c0235afc1bf1e689fb3c0bb8894765d81afd5464fe7 容器id
+
+docker ps -a
+//查看进程
+CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS                      PORTS               NAMES
+2ea3643b83cd        centos              "/bin/bash -c 'while   2 minutes ago       Up 2 minutes                                    admiring_hoover
+
+
+//admiring_hoover 系统分配的名称
+
+docker logs admiring_hoover 
+//查看输出
+
+docker stop admiring_hoover 
+//停止后台进程
+
+docker start admiring_hoover 
+//开启
+
+docker rm admiring_hoover
+//移除
+
+
+docker top admiring_hoover
+//查看容器进程
+
+
+docker inspect admiring_hoover
+//显示容器配置与状态信息
+
+
+
+docker run idt ubuntu
+docker ps
+docker attach NAMES
+//进入容器
+//但是使用 attach 命令有时候并不方便。当多个窗口同时 attach 到同一个容器的时候，所有窗口都会同步显示。当某个窗口因命令阻塞时,其他窗口也无法执行操作了。
+
+
+
+更简单的，建议大家下载 .bashrc_docker，并将内容放到 .bashrc 中。
+
+$ wget -P ~ https://github.com/yeasy/docker_practice/raw/master/_local/.bashrc_docker;
+$ echo "[ -f ~/.bashrc_docker ] && . ~/.bashrc_docker" >> ~/.bashrc; source ~/.bashrc
+
+这个文件中定义了很多方便使用 Docker 的命令，例如 docker-pid 可以获取某个容器的 PID；而 docker-enter 可以进入容器或直接在容器内执行命令。
+
+$ echo $(docker-pid <container>)
+$ docker-enter <container> ls
+
+
+
+
+
+
+
+
+
+
+#提交一个镜像
+docker commit -m="add vsftpd" -a="goooood" 364d986b17f7 centos:V2
+
+
+
+
+
+
+mkdir centos
+cd centos
+
+vim Dockerfile
+#This is a comment
+FROM centos:V2
+MAINTAINER goooood <694366594@qq.com>
+RUN yum install -y vim
+
+
+#开始运行
+docker build -t="centos:V2" .
+
+
+
+
+
+
+#导出images
+docker export 7691a814370e > ubuntu.tar
+#导入
+cat ubuntu.tar | docker import - ubuntu:v1.0
+
+#清理所有处于终止状态的容器
+docker rm $(docker ps -a -q)
+
+

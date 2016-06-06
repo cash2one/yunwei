@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+
+yum install lsscsi -y
+
+lsscsi
+
+

@@ -1,0 +1,24 @@
+
+
+1:Cannot connect to the Docker daemon. Is 'docker -d' running on this host?
+
+
+
+docker -d  查看启动情况
+
+发现内核不够高
+
+升级内核
+http://www.tuicool.com/articles/rUvERv
+
+
+
+
+[root@Zabbix_server ~]# docker  -d
+INFO[0000] Listening for HTTP on unix (/var/run/docker.sock) 
+docker: relocation error: docker: symbol dm_task_get_info_with_deferred_remove, version Base not defined in file libdevmapper.so.1.02 with link time reference
+
+
+解决：
+yum upgrade device-mapper-libs    
+
