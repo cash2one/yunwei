@@ -16,14 +16,16 @@
 		q #退出
 	4：格式化
 		partprobe
-		mkfs -t ext4 /dev/xvdb1
+		mkfs -t ext4 /dev/vdb1
 	5：挂载到/data
 mkdir /data
-mount /dev/xvdb1 /data
+mount /dev/vdb1 /data
 	6:保存至配置文件中
 		vim /etc/fstab
-		 /dev/xvdb1  /data    ext4    defaults     0  0   #最后一行加入
+		 /dev/vdb1  /data    ext4    defaults     0  0   #最后一行加入
 
+
+/dev/vdc1  /data    ext4    defaults     0  0
 
 二：安装环境
 	1:安装上传软件

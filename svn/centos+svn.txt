@@ -62,16 +62,18 @@ guest = r      #其它用户权限
 cd /data/svn/
 mkdir admin
 svnadmin create admin/
-cd ..
 mkdir server
 svnadmin create server/
+
+cd /data/svn/
+chown -R apache.apache . 
 
 
 //启动
 /etc/init.d/httpd start
 
 //访问
-http://svn/admin
+http://192/svn/admin
 
 
 

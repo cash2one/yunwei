@@ -18,7 +18,7 @@ docker tag
 获取详细信息
 docker inspect  55xoansjql
 
-//json 格式
+//json 格式  要加点        镜像id
 docker inspect -f {{".键"}} 55x
 
 
@@ -31,18 +31,33 @@ docker inspect -f {{".键"}} 55x
 
 
 
-docker commit -m "注释" -a "作者"  镜像 名字
+//docker commit -m "注释" -a "作者"  c_id  images_name
+
+[root@e79c84a41da4 /]# touch test.txt
+docker commit -m "Add test.txt" -a "lpx" e79c84a41da4 centos_test
+
+[root@bogon /]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+centos_test         latest              3a798aeb47da        7 seconds ago       196.7 MB
+docker.io/centos    latest              a65193109361        10 days ago         196.7 MB
 
 
 
 
 
-//存出
+
+
+
+
+
+
+
+//存出镜像
 
 docker save -o ubuntu_14.04.tar ubuntu:14.04
 
 
-//载入
+//载入      与原来的images 相同
 docker load --input ubuntu_14.04.tar
 或者
 docker load < ubuntu_14.04.tar
@@ -54,6 +69,60 @@ docker load < ubuntu_14.04.tar
 docker create -it ubuntu:lastest
 
 docker ps -a 
+
+//新建并启动
+
+docker run ubuntu /bin/echo "hello world"
+
+#允许交互
+docker run -t -i ubuntu /bin/bash
+
+
+
+
+//查看终止的容器
+docker ps -a -q
+
+
+
+
+// 删除容器
+docker ps -a 
+docker rm  c_id
+
+
+
+
+
+//删除镜像
+docker images
+docker rmi  images_id
+
+
+//导出容器
+docker export a7a9676e9b5f > test_c.tar
+
+//导入容器会成为一个镜像
+cat test_c.tar |docker import - test_c:v1
+[root@bogon data]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+test_c              v1                  cc28136420a1        15 seconds ago      196.7 MB
+
+///////////////////////////
+
+1. docker load 命令来导入镜像存储文件到本地的镜像库
+2. docker import 命令来导入一个容器快照到本地镜像库
+
+区别：
+容器快照文件将丢弃所有的历史记录换个元数据信息
+镜像存储文件将保存完整记录,体积要大
+容器快照文件导入时可以重新指定标签等元数据信息
+
+//////////////////
+
+
+
+
 
 
 
@@ -81,9 +150,21 @@ docker stop C-id
 
 
 
-//进入
+//进入容器
+docker start c_id
 docker exec -ti C-id /bin/bash 
 
+docker exec -it <CONTAINER ID> /bin/bash 
+
+
+//仓库
+
+注册服务器是存放仓库的服务器,每个服务器可以有多个仓库,每个仓库下面有多个镜像
+
+eg: dl.dockerpool.com/ubuntu
+
+dl.dockerpool.com  是注册服务器
+ubuntu             是仓库名
 
 
 
@@ -224,13 +305,36 @@ docker  run --rm --name  web2 --link db:db  training/webapp env
 
 
 
+//选项配置文件
+
+/usr/lib/systemd/system/docker.service
 
 
 
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network.target docker.socket
+Requires=docker.socket
+
+[Service]
+Type=notify
+EnvironmentFile=/etc/sysconfig/docker
+# the default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+ExecStart=/usr/bin/docker daemon $OPTIONS -H fd://
+MountFlags=slave
+LimitNOFILE=1048576
+LimitNPROC=1048576
+LimitCORE=infinity
+TimeoutStartSec=0
+# set delegate yes so that systemd does not reset the cgroups of docker containers
+Delegate=yes
 
 
-
-
+[Install]
+WantedBy=multi-user.target
 
 
 

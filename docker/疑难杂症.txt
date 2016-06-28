@@ -22,3 +22,86 @@ docker: relocation error: docker: symbol dm_task_get_info_with_deferred_remove, 
 解决：
 yum upgrade device-mapper-libs    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+docker
+
+sshd
+
+
+问题：
+[root@604bc9d56ade /]# /usr/sbin/sshd -D &
+[1] 102
+Could not load host key: /etc/ssh/ssh_host_rsa_key
+Could not load host key: /etc/ssh/ssh_host_ecdsa_key
+Could not load host key: /etc/ssh/ssh_host_ed25519_key
+
+解决：
+ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ""
+ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N ""
+ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ""
+
+
+
+
+
+
+
+
+
+
+
+mysql：
+
+安装：
+yum install wget
+wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+yum install mysql-community-server
+
+
+
+
+错误：
+Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+解决：
+mysql_install_db --user=mysql --datadir=/usr/local/mysql/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

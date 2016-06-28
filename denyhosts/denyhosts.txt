@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+
+我将hosts.deny文件中的用户列表删除后，不久后竟然又自动给添加进来了！我@#￥￥。。难道硬是不让我再次登录了？！
+
+service denyhosts stop
+
+//删除里面的ip
+/var/lib/denyhosts/hosts
+
+
+service denyhosts start
+
+
+
+
+
+
+
+
+

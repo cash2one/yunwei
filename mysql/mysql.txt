@@ -3,7 +3,15 @@
 show processlist;
 
 
+在 [mysqld] 之下加
+default-time-zone=timezone
+来修改时区。如：
+default-time-zone = '+8:00'
+修改完了记得记得重启msyql
 
+
+select now();
+show variables like '%time_zone%';
 
 
 select * from zifu limit 3 into outfile '/tmp/zifu.txt';
