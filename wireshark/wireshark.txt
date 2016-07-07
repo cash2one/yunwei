@@ -1,0 +1,11 @@
+
+
+
+http.request.method==POST
+这个是获取post
+你可以获取目的ip
+ip.dst== IP地址
+
+
+
+
