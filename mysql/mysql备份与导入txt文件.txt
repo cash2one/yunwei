@@ -1,0 +1,24 @@
+
+
+
+mkdir /data/backup/test -p
+chmod 777 /data/backup/test
+
+
+
+
+
+
+#备份
+mysqldump -p`cat /data/save/mysql_root` --default-character-set=binary -F --master-data=2 -T /data/backup test
+
+
+
+
+
+
+
+#导入
+mysqlimport -s --local -p`cat /data/save/mysql_root` test *.txt
+
+
