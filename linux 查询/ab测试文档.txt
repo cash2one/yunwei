@@ -1,0 +1,99 @@
+
+
+1:吞吐率
+
+总请求数 / 处理完成这些请求数所花费的时间，即
+Request per second = Complete requests / Time taken for tests
+
+
+2：用户平均请求等待时间（Time per request）
+
+处理完成所有请求数所花费的时间/ （总请求数 / 并发用户数），即
+Time per request = Time taken for tests /（ Complete requests / Concurrency Level）
+
+
+
+3：服务器平均请求等待时间（Time per request: across all concurrent requests）
+
+处理完成所有请求数所花费的时间 / 总请求数
+Time taken for / testsComplete requests
+
+
+用户平均请求等待时间/并发用户数
+Time per request / Concurrency Level
+
+
+
+
+
+
+ab 
+
+
+ab -c 1000 -n 20
+
+
+
+
+
+
+webbench
+
+yum install ctags -y
+mkdir /usr/local/man
+wget http://www.ha97.com/code/webbench-1.5.tar.gz
+tar xf webbench-1.5.tar.gz 
+cd webbench-1.5
+make
+make install
+cd ~
+
+
+
+
+//并发1000
+webbench -c 1000 -t 60 http://127.0.0.1/admin/README.txt
+
+-c 并发
+-t 表示持续
+
+
+
+
+
+
+
+
+http_load:
+
+wget http://soft.vpser.net/test/http_load/http_load-12mar2006.tar.gz
+tar xf http_load-12mar2006.tar.gz
+cd http_load-12mar2006
+make  && make install
+cd ~
+
+
+
+http_load -p 30 -s 60  urllist.txt
+
+ 1   49 fetches, 2 max parallel, 289884 bytes, in 10.0148 seconds说明在上面的测试中运行了49个请求，最大的并发进程数是2，总计传输的数据是289884bytes，运行的时间是10.0148秒
+ 2   5916 mean bytes/connection说明每一连接平均传输的数据量289884/49=5916
+ 3   4.89274 fetches/sec, 28945.5 bytes/sec说明每秒的响应请求为4.89274，每秒传递的数据为28945.5 bytes/sec
+ 4   msecs/connect: 28.8932 mean, 44.243 max, 24.488 min说明每连接的平均响应时间是28.8932 msecs，最大的响应时间44.243 msecs，最小的响应时间24.488 msecs
+ 5   msecs/first-response: 63.5362 mean, 81.624 max, 57.803 min
+ 6   HTTP response codes: code 200 — 49     说明打开响应页面的类型，如果403的类型过多，那可能要注意是否系统遇到了瓶颈。
+
+
+
+
+
+
+JMeter
+
+
+
+Web Polygraph
+
+
+
+
