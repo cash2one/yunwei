@@ -1,0 +1,76 @@
+[client]
+port                            = 3306
+socket                          = /data/joygames/mysql/mysql.sock
+user                            = hhw 
+password                        = JoyGames
+host        	   		= 10.47.200.9
+
+[mysqld]
+explicit_defaults_for_timestamp = true
+basedir                         = /data/joygames/mysql
+datadir                         = /data/joygames/mysql/data
+socket                          = /data/joygames/mysql/mysql.sock
+user                            = mysql
+bind-address                    = 10.47.200.9
+log-bin                         = /data/joygames/mysql/data/mysql-bin
+server-id                       = 10001
+binlog-ignore-db                = mysql
+replicate-ignore-db             = mysql
+binlog_format                   = ROW 
+default-storage-engine          = INNODB 
+character-set-server            = utf8
+back_log                        = 500
+max_connections                 = 1024 
+max_connect_errors              = 102400
+max_allowed_packet              = 16M
+query_cache_type                = 1
+query_cache_size                = 32M
+query_cache_limit               = 1M
+max_heap_table_size             = 64M
+sort_buffer_size                = 8M
+join_buffer_size                = 8M
+thread_cache_size               = 100
+thread_stack                    = 192K
+ft_min_word_len                 = 4
+tmp_table_size                  = 64M
+binlog_cache_size               = 1M
+slow-query-log			= 1
+long_query_time                 = 5
+slow-query-log-file             = /data/joygames/mysql/mysql-slow.log
+key_buffer_size                 = 32M
+wait_timeout                    = 28800
+interactive_timeout             = 28800
+sql_mode                        = NO_ENGINE_SUBSTITUTION
+transaction_isolation           = REPEATABLE-READ
+innodb_buffer_pool_size         = 2G
+innodb_lock_wait_timeout        = 30
+innodb_thread_concurrency       = 16
+innodb_file_io_threads          = 4
+innodb_max_dirty_pages_pct      = 90
+innodb_log_file_size            = 256M
+innodb_log_buffer_size          = 8M
+innodb_log_files_in_group       = 4
+innodb_flush_log_at_trx_commit  = 0
+innodb_data_file_path           = ibdata1:1G;ibdata2:1G;ibdata3:1G;ibdata4:1G;ibdata5:1G:autoextend
+innodb_data_home_dir            = /data/joygames/mysql/innodb/data
+innodb_log_group_home_dir       = /data/joygames/mysql/innodb/log
+
+[mysqldump]
+quick
+max_allowed_packet              = 16M
+
+[mysql]
+pager = more
+no-auto-rehash
+socket                          = /data/joygames/mysql/mysql.sock
+
+
+[mysqlhotcopy]
+interactive-timeout
+
+[mysqld_safe]
+open-files-limit                = 65535
+user                            = mysql
+log-error                       = /data/joygames/mysql/log/mysqld.log
+pid-file                        = /data/joygames/mysql/mysqld.pid
+socket                          = /data/joygames/mysql/mysql.sock
