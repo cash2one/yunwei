@@ -1,0 +1,217 @@
+2016-08-23T05:47:22.157+0800 I CONTROL  [initandlisten] MongoDB starting : pid=2067 port=28000 dbpath=/data/database/mongo/data1/shard 64-bit host=good
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten] db version v3.2.9
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten] git version: 22ec9e93b40c85fc7cae7d56e7d6a02fd811088c
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1e-fips 11 Feb 2013
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten] modules: none
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten] build environment:
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten]     distmod: rhel62
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2016-08-23T05:47:22.158+0800 I CONTROL  [initandlisten] options: { config: "shard/shard1.conf", net: { maxIncomingConnections: 800, port: 28000 }, processManagement: { fork: true }, replication: { replSet: "shard2" }, sharding: { clusterRole: "shardsvr" }, storage: { dbPath: "/data/database/mongo/data1/shard", mmapv1: { smallFiles: true } }, systemLog: { destination: "file", logAppend: true, path: "/data/database/mongo/data1/shard/share2.log" } }
+2016-08-23T05:47:22.159+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1G,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2016-08-23T05:47:22.262+0800 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] 
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] 
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] 
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2016-08-23T05:47:22.262+0800 I CONTROL  [initandlisten] 
+2016-08-23T05:47:22.279+0800 I REPL     [initandlisten] Did not find local voted for document at startup;  NoMatchingDocument: Did not find replica set lastVote document in local.replset.election
+2016-08-23T05:47:22.279+0800 I REPL     [initandlisten] Did not find local replica set configuration document at startup;  NoMatchingDocument: Did not find replica set configuration document in local.system.replset
+2016-08-23T05:47:22.279+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/database/mongo/data1/shard/diagnostic.data'
+2016-08-23T05:47:22.280+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2016-08-23T05:47:22.290+0800 I NETWORK  [initandlisten] waiting for connections on port 28000
+2016-08-23T05:47:37.294+0800 W NETWORK  [HostnameCanonicalizationWorker] Failed to obtain address information for hostname good: Name or service not known
+2016-08-23T05:49:35.646+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:37793 #1 (1 connection now open)
+2016-08-23T05:49:51.747+0800 I REPL     [conn1] replSetInitiate admin command received from client
+2016-08-23T05:49:51.753+0800 I REPL     [conn1] replSetInitiate config object with 3 members parses ok
+2016-08-23T05:49:51.754+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 192.168.30.129:28001
+2016-08-23T05:49:51.754+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 192.168.30.129:28002
+2016-08-23T05:49:51.757+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 192.168.30.129:28002
+2016-08-23T05:49:51.758+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 192.168.30.129:28001
+2016-08-23T05:49:51.762+0800 I REPL     [conn1] ******
+2016-08-23T05:49:51.762+0800 I REPL     [conn1] creating replication oplog of size: 990MB...
+2016-08-23T05:49:51.767+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57756 #2 (2 connections now open)
+2016-08-23T05:49:51.770+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57757 #3 (3 connections now open)
+2016-08-23T05:49:51.781+0800 I STORAGE  [conn1] Starting WiredTigerRecordStoreThread local.oplog.rs
+2016-08-23T05:49:51.781+0800 I STORAGE  [conn1] The size storer reports that the oplog contains 0 records totaling to 0 bytes
+2016-08-23T05:49:51.781+0800 I STORAGE  [conn1] Scanning the oplog to determine where to place markers for truncation
+2016-08-23T05:49:51.793+0800 I REPL     [conn1] ******
+2016-08-23T05:49:51.805+0800 I REPL     [ReplicationExecutor] New replica set config in use: { _id: "shard2", version: 1, protocolVersion: 1, members: [ { _id: 0, host: "192.168.30.129:28000", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 1, host: "192.168.30.129:28001", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 2, host: "192.168.30.129:28002", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 } ], settings: { chainingAllowed: true, heartbeatIntervalMillis: 2000, heartbeatTimeoutSecs: 10, electionTimeoutMillis: 10000, getLastErrorModes: {}, getLastErrorDefaults: { w: 1, wtimeout: 0 }, replicaSetId: ObjectId('57bb737f727d036c9bb4c3c3') } }
+2016-08-23T05:49:51.805+0800 I REPL     [ReplicationExecutor] This node is 192.168.30.129:28000 in the config
+2016-08-23T05:49:51.805+0800 I REPL     [ReplicationExecutor] transition to STARTUP2
+2016-08-23T05:49:51.806+0800 I REPL     [ReplicationExecutor] Member 192.168.30.129:28002 is now in state STARTUP
+2016-08-23T05:49:51.806+0800 I REPL     [ReplicationExecutor] Member 192.168.30.129:28001 is now in state STARTUP
+2016-08-23T05:49:51.806+0800 I REPL     [conn1] Starting replication applier threads
+2016-08-23T05:49:51.807+0800 I REPL     [ReplicationExecutor] transition to RECOVERING
+2016-08-23T05:49:51.808+0800 I REPL     [ReplicationExecutor] transition to SECONDARY
+2016-08-23T05:49:53.774+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57758 #4 (4 connections now open)
+2016-08-23T05:49:53.774+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57759 #5 (5 connections now open)
+2016-08-23T05:49:53.775+0800 I NETWORK  [conn5] end connection 192.168.30.129:57759 (4 connections now open)
+2016-08-23T05:49:53.775+0800 I NETWORK  [conn4] end connection 192.168.30.129:57758 (3 connections now open)
+2016-08-23T05:49:53.904+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57764 #6 (4 connections now open)
+2016-08-23T05:49:53.912+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57765 #7 (5 connections now open)
+2016-08-23T05:49:53.928+0800 I NETWORK  [conn6] end connection 192.168.30.129:57764 (4 connections now open)
+2016-08-23T05:49:53.933+0800 I NETWORK  [conn7] end connection 192.168.30.129:57765 (3 connections now open)
+2016-08-23T05:49:56.808+0800 I REPL     [ReplicationExecutor] Member 192.168.30.129:28001 is now in state SECONDARY
+2016-08-23T05:49:56.808+0800 I REPL     [ReplicationExecutor] Member 192.168.30.129:28002 is now in state SECONDARY
+2016-08-23T05:50:02.865+0800 I REPL     [ReplicationExecutor] Starting an election, since we've seen no PRIMARY in the past 10000ms
+2016-08-23T05:50:02.865+0800 I REPL     [ReplicationExecutor] conducting a dry run election to see if we could be elected
+2016-08-23T05:50:02.890+0800 I REPL     [ReplicationExecutor] dry election run succeeded, running for election
+2016-08-23T05:50:02.914+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 192.168.30.129:28002
+2016-08-23T05:50:02.916+0800 I REPL     [ReplicationExecutor] election succeeded, assuming primary role in term 1
+2016-08-23T05:50:02.916+0800 I REPL     [ReplicationExecutor] transition to PRIMARY
+2016-08-23T05:50:02.917+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 192.168.30.129:28002
+2016-08-23T05:50:02.918+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 192.168.30.129:28002
+2016-08-23T05:50:02.918+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 192.168.30.129:28002
+2016-08-23T05:50:03.816+0800 I REPL     [rsSync] transition to primary complete; database writes are now permitted
+2016-08-23T05:50:05.846+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57768 #8 (4 connections now open)
+2016-08-23T05:50:05.848+0800 I NETWORK  [conn8] end connection 192.168.30.129:57768 (3 connections now open)
+2016-08-23T05:50:05.848+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57769 #9 (4 connections now open)
+2016-08-23T05:50:05.848+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57770 #10 (5 connections now open)
+2016-08-23T05:50:05.851+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57771 #11 (6 connections now open)
+2016-08-23T05:50:05.852+0800 I NETWORK  [conn11] end connection 192.168.30.129:57771 (5 connections now open)
+2016-08-23T05:50:05.852+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57772 #12 (6 connections now open)
+2016-08-23T05:50:05.853+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57773 #13 (7 connections now open)
+2016-08-23T06:09:50.353+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:35867 #14 (8 connections now open)
+2016-08-23T06:09:50.359+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:35868 #15 (9 connections now open)
+2016-08-23T06:09:50.369+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:35869 #16 (10 connections now open)
+2016-08-23T06:10:00.073+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:35875 #17 (11 connections now open)
+2016-08-23T06:10:00.074+0800 I SHARDING [conn17] remote client 192.168.30.128:35875 initialized this host as shard shard2
+2016-08-23T06:10:00.074+0800 I SHARDING [ShardingState initialization] first cluster operation detected, adding sharding hook to enable versioning and authentication to remote servers
+2016-08-23T06:10:00.074+0800 I SHARDING [ShardingState initialization] Updating config server connection string to: 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002
+2016-08-23T06:10:00.076+0800 I NETWORK  [ShardingState initialization] SyncClusterConnection connecting to [192.168.30.128:27000]
+2016-08-23T06:10:00.076+0800 I SHARDING [LockPinger] creating distributed lock ping thread for 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 and process good:28000:1471903800:401278145 (sleeping for 30000ms)
+2016-08-23T06:10:00.076+0800 I NETWORK  [LockPinger] SyncClusterConnection connecting to [192.168.30.128:27000]
+2016-08-23T06:10:00.077+0800 I NETWORK  [LockPinger] SyncClusterConnection connecting to [192.168.30.128:27001]
+2016-08-23T06:10:00.078+0800 I NETWORK  [ShardingState initialization] SyncClusterConnection connecting to [192.168.30.128:27001]
+2016-08-23T06:10:00.079+0800 I NETWORK  [ShardingState initialization] SyncClusterConnection connecting to [192.168.30.128:27002]
+2016-08-23T06:10:00.079+0800 I NETWORK  [LockPinger] SyncClusterConnection connecting to [192.168.30.128:27002]
+2016-08-23T06:10:00.080+0800 I NETWORK  [ShardingState initialization] Starting new replica set monitor for shard1/192.168.30.129:27000,192.168.30.129:27001,192.168.30.129:27002
+2016-08-23T06:10:00.080+0800 I NETWORK  [ShardingState initialization] Starting new replica set monitor for shard2/192.168.30.129:28000,192.168.30.129:28001,192.168.30.129:28002
+2016-08-23T06:10:00.081+0800 I NETWORK  [ReplicaSetMonitorWatcher] starting
+2016-08-23T06:10:00.120+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:10:00.080+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:10:10.086+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57794 #18 (12 connections now open)
+2016-08-23T06:10:30.168+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:10:30.121+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:10:50.371+0800 I NETWORK  [conn16] end connection 192.168.30.128:35869 (11 connections now open)
+2016-08-23T06:11:00.189+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:11:00.168+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:11:30.211+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:11:30.190+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:12:00.232+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:12:00.212+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:12:30.251+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:12:30.232+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:13:00.265+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:13:00.251+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:13:30.281+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:13:30.265+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:14:00.290+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:14:00.282+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:14:30.296+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:14:30.291+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:14:50.374+0800 I NETWORK  [conn15] end connection 192.168.30.128:35868 (10 connections now open)
+2016-08-23T06:15:00.316+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:15:00.296+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:15:11.026+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57806 #19 (11 connections now open)
+2016-08-23T06:15:11.026+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57807 #20 (12 connections now open)
+2016-08-23T06:15:11.027+0800 I SHARDING [conn20] remotely refreshing metadata for shop.user, current shard version is 0|0||000000000000000000000000, current metadata version is 0|0||000000000000000000000000
+2016-08-23T06:15:11.028+0800 I SHARDING [conn20] collection shop.user was previously unsharded, new metadata loaded with shard version 0|0||57bb7874e711cb43affe4114
+2016-08-23T06:15:11.028+0800 I SHARDING [conn20] collection version was loaded at version 1|8||57bb7874e711cb43affe4114, took 1ms
+2016-08-23T06:15:11.028+0800 I SHARDING [migrateThread] starting receiving-end of migration of chunk { userid: MinKey } -> { userid: 1000.0 } for collection shop.user from shard1/192.168.30.129:27000,192.168.30.129:27001,192.168.30.129:27002 at epoch 57bb7874e711cb43affe4114
+2016-08-23T06:15:11.030+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57809 #21 (13 connections now open)
+2016-08-23T06:15:11.075+0800 I INDEX    [migrateThread] build index on: shop.user properties: { v: 1, key: { _id: 1 }, name: "_id_", ns: "shop.user" }
+2016-08-23T06:15:11.075+0800 I INDEX    [migrateThread] 	 building index using bulk method
+2016-08-23T06:15:11.084+0800 I INDEX    [migrateThread] build index on: shop.user properties: { v: 1, key: { userid: 1.0 }, name: "userid_1", ns: "shop.user" }
+2016-08-23T06:15:11.084+0800 I INDEX    [migrateThread] 	 building index using bulk method
+2016-08-23T06:15:11.085+0800 I INDEX    [migrateThread] build index done.  scanned 0 total records. 0 secs
+2016-08-23T06:15:11.109+0800 I SHARDING [migrateThread] Deleter starting delete for: shop.user from { userid: MinKey } -> { userid: 1000.0 }, with opId: 8527
+2016-08-23T06:15:11.109+0800 I SHARDING [migrateThread] Helpers::removeRangeUnlocked time spent waiting for replication: 0ms
+2016-08-23T06:15:11.109+0800 I SHARDING [migrateThread] rangeDeleter deleted 0 documents for shop.user from { userid: MinKey } -> { userid: 1000.0 }
+2016-08-23T06:15:11.130+0800 I SHARDING [migrateThread] Waiting for replication to catch up before entering critical section
+2016-08-23T06:15:11.130+0800 I SHARDING [migrateThread] migrate commit succeeded flushing to secondaries for 'shop.user' { userid: MinKey } -> { userid: 1000.0 }
+2016-08-23T06:15:11.176+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57810 #22 (14 connections now open)
+2016-08-23T06:15:11.186+0800 I SHARDING [migrateThread] migrate commit succeeded flushing to secondaries for 'shop.user' { userid: MinKey } -> { userid: 1000.0 }
+2016-08-23T06:15:11.197+0800 I NETWORK  [migrateThread] scoped connection to 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 not being returned to the pool
+2016-08-23T06:15:11.197+0800 I SHARDING [migrateThread] about to log metadata event into changelog: { _id: "good-2016-08-23T06:15:11.197+0800-57bb796f727d036c9bb4c3c5", server: "good", clientAddr: "", time: new Date(1471904111197), what: "moveChunk.to", ns: "shop.user", details: { min: { userid: MinKey }, max: { userid: 1000.0 }, step 1 of 5: 75, step 2 of 5: 26, step 3 of 5: 0, step 4 of 5: 0, step 5 of 5: 56, note: "success" } }
+2016-08-23T06:15:12.338+0800 I SHARDING [conn20] remotely refreshing metadata for shop.user based on current shard version 0|0||57bb7874e711cb43affe4114, current metadata version is 1|8||57bb7874e711cb43affe4114
+2016-08-23T06:15:12.340+0800 I SHARDING [conn20] updating metadata for shop.user from shard version 0|0||57bb7874e711cb43affe4114 to shard version 2|0||57bb7874e711cb43affe4114
+2016-08-23T06:15:12.340+0800 I SHARDING [conn20] collection version was loaded at version 2|1||57bb7874e711cb43affe4114, took 2ms
+2016-08-23T06:15:12.340+0800 I SHARDING [migrateThread] starting receiving-end of migration of chunk { userid: 1000.0 } -> { userid: 2000.0 } for collection shop.user from shard1/192.168.30.129:27000,192.168.30.129:27001,192.168.30.129:27002 at epoch 57bb7874e711cb43affe4114
+2016-08-23T06:15:12.341+0800 I SHARDING [migrateThread] Deleter starting delete for: shop.user from { userid: 1000.0 } -> { userid: 2000.0 }, with opId: 8569
+2016-08-23T06:15:12.341+0800 I SHARDING [migrateThread] Helpers::removeRangeUnlocked time spent waiting for replication: 0ms
+2016-08-23T06:15:12.341+0800 I SHARDING [migrateThread] rangeDeleter deleted 0 documents for shop.user from { userid: 1000.0 } -> { userid: 2000.0 }
+2016-08-23T06:15:12.341+0800 I SHARDING [migrateThread] Waiting for replication to catch up before entering critical section
+2016-08-23T06:15:12.341+0800 I SHARDING [migrateThread] migrate commit succeeded flushing to secondaries for 'shop.user' { userid: 1000.0 } -> { userid: 2000.0 }
+2016-08-23T06:15:12.352+0800 I SHARDING [migrateThread] migrate commit succeeded flushing to secondaries for 'shop.user' { userid: 1000.0 } -> { userid: 2000.0 }
+2016-08-23T06:15:12.352+0800 I SHARDING [migrateThread] about to log metadata event into changelog: { _id: "good-2016-08-23T06:15:12.352+0800-57bb7970727d036c9bb4c3c6", server: "good", clientAddr: "", time: new Date(1471904112352), what: "moveChunk.to", ns: "shop.user", details: { min: { userid: 1000.0 }, max: { userid: 2000.0 }, step 1 of 5: 0, step 2 of 5: 0, step 3 of 5: 0, step 4 of 5: 0, step 5 of 5: 11, note: "success" } }
+2016-08-23T06:15:30.331+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:15:30.317+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:16:00.353+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:16:00.332+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:16:30.376+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:16:30.354+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:16:32.030+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:35879 #23 (15 connections now open)
+2016-08-23T06:16:32.032+0800 I SHARDING [conn23] remotely refreshing metadata for shop.user with requested shard version 3|0||57bb7874e711cb43affe4114 based on current shard version 2|0||57bb7874e711cb43affe4114, current metadata version is 2|1||57bb7874e711cb43affe4114
+2016-08-23T06:16:32.033+0800 I SHARDING [conn23] updating metadata for shop.user from shard version 2|0||57bb7874e711cb43affe4114 to shard version 3|0||57bb7874e711cb43affe4114
+2016-08-23T06:16:32.033+0800 I SHARDING [conn23] collection version was loaded at version 3|1||57bb7874e711cb43affe4114, took 1ms
+2016-08-23T06:16:36.756+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57816 #24 (16 connections now open)
+2016-08-23T06:17:00.396+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:17:00.376+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:17:18.564+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57822 #25 (17 connections now open)
+2016-08-23T06:17:18.565+0800 I SHARDING [conn25] remotely refreshing metadata for shop.user based on current shard version 3|0||57bb7874e711cb43affe4114, current metadata version is 3|1||57bb7874e711cb43affe4114
+2016-08-23T06:17:18.566+0800 I SHARDING [conn25] updating metadata for shop.user from shard version 3|0||57bb7874e711cb43affe4114 to shard version 3|0||57bb7874e711cb43affe4114
+2016-08-23T06:17:18.566+0800 I SHARDING [conn25] collection version was loaded at version 3|4||57bb7874e711cb43affe4114, took 0ms
+2016-08-23T06:17:18.566+0800 I SHARDING [migrateThread] starting receiving-end of migration of chunk { userid: 15802.0 } -> { userid: MaxKey } for collection shop.user from shard1/192.168.30.129:27000,192.168.30.129:27001,192.168.30.129:27002 at epoch 57bb7874e711cb43affe4114
+2016-08-23T06:17:18.566+0800 I SHARDING [migrateThread] Deleter starting delete for: shop.user from { userid: 15802.0 } -> { userid: MaxKey }, with opId: 21237
+2016-08-23T06:17:18.567+0800 I SHARDING [migrateThread] rangeDeleter deleted 0 documents for shop.user from { userid: 15802.0 } -> { userid: MaxKey }
+2016-08-23T06:17:18.572+0800 I SHARDING [migrateThread] Waiting for replication to catch up before entering critical section
+2016-08-23T06:17:18.572+0800 I SHARDING [migrateThread] migrate commit succeeded flushing to secondaries for 'shop.user' { userid: 15802.0 } -> { userid: MaxKey }
+2016-08-23T06:17:18.583+0800 I SHARDING [migrateThread] migrate commit succeeded flushing to secondaries for 'shop.user' { userid: 15802.0 } -> { userid: MaxKey }
+2016-08-23T06:17:18.583+0800 I SHARDING [migrateThread] about to log metadata event into changelog: { _id: "good-2016-08-23T06:17:18.583+0800-57bb79ee727d036c9bb4c3c7", server: "good", clientAddr: "", time: new Date(1471904238583), what: "moveChunk.to", ns: "shop.user", details: { min: { userid: 15802.0 }, max: { userid: MaxKey }, step 1 of 5: 0, step 2 of 5: 0, step 3 of 5: 5, step 4 of 5: 0, step 5 of 5: 10, note: "success" } }
+2016-08-23T06:17:18.619+0800 I SHARDING [conn23] remotely refreshing metadata for shop.user with requested shard version 4|0||57bb7874e711cb43affe4114 based on current shard version 3|0||57bb7874e711cb43affe4114, current metadata version is 3|4||57bb7874e711cb43affe4114
+2016-08-23T06:17:18.620+0800 I SHARDING [conn23] updating metadata for shop.user from shard version 3|0||57bb7874e711cb43affe4114 to shard version 4|0||57bb7874e711cb43affe4114
+2016-08-23T06:17:18.620+0800 I SHARDING [conn23] collection version was loaded at version 4|1||57bb7874e711cb43affe4114, took 0ms
+2016-08-23T06:17:30.412+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:17:30.396+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:17:36.797+0800 I NETWORK  [conn24] end connection 192.168.30.129:57816 (16 connections now open)
+2016-08-23T06:17:44.065+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:57823 #26 (17 connections now open)
+2016-08-23T06:17:49.304+0800 I SHARDING [conn17] request split points lookup for chunk shop.user { : 15802.0 } -->> { : MaxKey }
+2016-08-23T06:17:55.956+0800 I SHARDING [conn17] request split points lookup for chunk shop.user { : 15802.0 } -->> { : MaxKey }
+2016-08-23T06:17:55.968+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:35881 #27 (18 connections now open)
+2016-08-23T06:17:55.970+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:35882 #28 (19 connections now open)
+2016-08-23T06:17:55.972+0800 I SHARDING [conn28] received splitChunk request: { splitChunk: "shop.user", keyPattern: { userid: 1.0 }, min: { userid: 15802.0 }, max: { userid: MaxKey }, from: "shard2", splitKeys: [ { userid: 21263.0 }, { userid: 28651.0 } ], configdb: "192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002", shardVersion: [ Timestamp 4000|1, ObjectId('57bb7874e711cb43affe4114') ], epoch: ObjectId('57bb7874e711cb43affe4114') }
+2016-08-23T06:17:55.992+0800 I SHARDING [conn28] distributed lock 'shop.user/good:28000:1471903800:401278145' acquired for 'splitting chunk [{ userid: 15802.0 }, { userid: MaxKey }) in shop.user', ts : 57bb7a13727d036c9bb4c3c8
+2016-08-23T06:17:55.992+0800 I SHARDING [conn28] remotely refreshing metadata for shop.user based on current shard version 4|0||57bb7874e711cb43affe4114, current metadata version is 4|1||57bb7874e711cb43affe4114
+2016-08-23T06:17:55.993+0800 I SHARDING [conn28] metadata of collection shop.user already up to date (shard version : 4|0||57bb7874e711cb43affe4114, took 0ms)
+2016-08-23T06:17:55.993+0800 I SHARDING [conn28] splitChunk accepted at version 4|0||57bb7874e711cb43affe4114
+2016-08-23T06:17:56.011+0800 I SHARDING [conn28] about to log metadata event into changelog: { _id: "good-2016-08-23T06:17:56.010+0800-57bb7a14727d036c9bb4c3c9", server: "good", clientAddr: "192.168.30.128:35882", time: new Date(1471904276010), what: "multi-split", ns: "shop.user", details: { before: { min: { userid: 15802.0 }, max: { userid: MaxKey } }, number: 1, of: 3, chunk: { min: { userid: 15802.0 }, max: { userid: 21263.0 }, lastmod: Timestamp 4000|2, lastmodEpoch: ObjectId('57bb7874e711cb43affe4114') } } }
+2016-08-23T06:17:56.012+0800 I SHARDING [conn28] about to log metadata event into changelog: { _id: "good-2016-08-23T06:17:56.012+0800-57bb7a14727d036c9bb4c3ca", server: "good", clientAddr: "192.168.30.128:35882", time: new Date(1471904276012), what: "multi-split", ns: "shop.user", details: { before: { min: { userid: 15802.0 }, max: { userid: MaxKey } }, number: 2, of: 3, chunk: { min: { userid: 21263.0 }, max: { userid: 28651.0 }, lastmod: Timestamp 4000|3, lastmodEpoch: ObjectId('57bb7874e711cb43affe4114') } } }
+2016-08-23T06:17:56.016+0800 I SHARDING [conn28] about to log metadata event into changelog: { _id: "good-2016-08-23T06:17:56.016+0800-57bb7a14727d036c9bb4c3cb", server: "good", clientAddr: "192.168.30.128:35882", time: new Date(1471904276016), what: "multi-split", ns: "shop.user", details: { before: { min: { userid: 15802.0 }, max: { userid: MaxKey } }, number: 3, of: 3, chunk: { min: { userid: 28651.0 }, max: { userid: MaxKey }, lastmod: Timestamp 4000|4, lastmodEpoch: ObjectId('57bb7874e711cb43affe4114') } } }
+2016-08-23T06:17:56.019+0800 I NETWORK  [conn28] SyncClusterConnection connecting to [192.168.30.128:27000]
+2016-08-23T06:17:56.021+0800 I NETWORK  [conn28] SyncClusterConnection connecting to [192.168.30.128:27001]
+2016-08-23T06:17:56.022+0800 I NETWORK  [conn28] SyncClusterConnection connecting to [192.168.30.128:27002]
+2016-08-23T06:17:56.044+0800 I SHARDING [conn28] distributed lock 'shop.user/good:28000:1471903800:401278145' unlocked. 
+2016-08-23T06:17:56.051+0800 I SHARDING [conn28] received moveChunk request: { moveChunk: "shop.user", from: "shard2/192.168.30.129:28000,192.168.30.129:28001,192.168.30.129:28002", to: "shard1/192.168.30.129:27000,192.168.30.129:27001,192.168.30.129:27002", fromShard: "shard2", toShard: "shard1", min: { userid: 28651.0 }, max: { userid: MaxKey }, maxChunkSizeBytes: 5242880, configdb: "192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002", secondaryThrottle: false, waitForDelete: false, maxTimeMS: 0, shardVersion: [ Timestamp 4000|4, ObjectId('57bb7874e711cb43affe4114') ], epoch: ObjectId('57bb7874e711cb43affe4114') }
+2016-08-23T06:17:56.062+0800 I SHARDING [conn28] distributed lock 'shop.user/good:28000:1471903800:401278145' acquired for 'migrating chunk [{ userid: 28651.0 }, { userid: MaxKey }) in shop.user', ts : 57bb7a14727d036c9bb4c3cc
+2016-08-23T06:17:56.062+0800 I SHARDING [conn28] remotely refreshing metadata for shop.user based on current shard version 4|4||57bb7874e711cb43affe4114, current metadata version is 4|4||57bb7874e711cb43affe4114
+2016-08-23T06:17:56.063+0800 I SHARDING [conn28] metadata of collection shop.user already up to date (shard version : 4|4||57bb7874e711cb43affe4114, took 0ms)
+2016-08-23T06:17:56.063+0800 I SHARDING [conn28] about to log metadata event into changelog: { _id: "good-2016-08-23T06:17:56.063+0800-57bb7a14727d036c9bb4c3cd", server: "good", clientAddr: "192.168.30.128:35882", time: new Date(1471904276063), what: "moveChunk.start", ns: "shop.user", details: { min: { userid: 28651.0 }, max: { userid: MaxKey }, from: "shard2", to: "shard1" } }
+2016-08-23T06:17:56.065+0800 I SHARDING [conn28] moveChunk request accepted at version 4|4||57bb7874e711cb43affe4114
+2016-08-23T06:17:56.065+0800 I SHARDING [conn28] moveChunk number of documents: 1
+2016-08-23T06:17:56.069+0800 I SHARDING [conn28] moveChunk data transfer progress: { active: true, sessionId: "shard2_shard1_57bb7a14727d036c9bb4c3ce", ns: "shop.user", from: "shard2/192.168.30.129:28000,192.168.30.129:28001,192.168.30.129:28002", min: { userid: 28651.0 }, max: { userid: MaxKey }, shardKeyPattern: { userid: 1.0 }, state: "clone", counts: { cloned: 0, clonedBytes: 0, catchup: 0, steady: 0 }, ok: 1.0 } my mem used: 0
+2016-08-23T06:17:56.071+0800 I SHARDING [conn28] moveChunk data transfer progress: { active: true, sessionId: "shard2_shard1_57bb7a14727d036c9bb4c3ce", ns: "shop.user", from: "shard2/192.168.30.129:28000,192.168.30.129:28001,192.168.30.129:28002", min: { userid: 28651.0 }, max: { userid: MaxKey }, shardKeyPattern: { userid: 1.0 }, state: "steady", counts: { cloned: 1, clonedBytes: 120, catchup: 0, steady: 0 }, ok: 1.0 } my mem used: 0
+2016-08-23T06:17:56.071+0800 I SHARDING [conn28] About to check if it is safe to enter critical section
+2016-08-23T06:17:56.072+0800 I SHARDING [conn28] About to enter migrate critical section
+2016-08-23T06:17:56.072+0800 I SHARDING [conn28] moveChunk setting version to: 5|0||57bb7874e711cb43affe4114
+2016-08-23T06:17:56.093+0800 I SHARDING [conn28] moveChunk migrate commit accepted by TO-shard: { active: false, ns: "shop.user", from: "shard2/192.168.30.129:28000,192.168.30.129:28001,192.168.30.129:28002", min: { userid: 28651.0 }, max: { userid: MaxKey }, shardKeyPattern: { userid: 1.0 }, state: "done", counts: { cloned: 1, clonedBytes: 120, catchup: 0, steady: 0 }, ok: 1.0 }
+2016-08-23T06:17:56.093+0800 I SHARDING [conn28] moveChunk updating self version to: 5|1||57bb7874e711cb43affe4114 through { userid: MinKey } -> { userid: 1000.0 } for collection 'shop.user'
+2016-08-23T06:17:56.109+0800 I SHARDING [conn28] about to log metadata event into changelog: { _id: "good-2016-08-23T06:17:56.109+0800-57bb7a14727d036c9bb4c3cf", server: "good", clientAddr: "192.168.30.128:35882", time: new Date(1471904276109), what: "moveChunk.commit", ns: "shop.user", details: { min: { userid: 28651.0 }, max: { userid: MaxKey }, from: "shard2", to: "shard1", cloned: 1, clonedBytes: 120, catchup: 0, steady: 0 } }
+2016-08-23T06:17:56.110+0800 I SHARDING [conn28] MigrateFromStatus::done About to acquire global lock to exit critical section
+2016-08-23T06:17:56.110+0800 I SHARDING [conn28] forking for cleanup of chunk data
+2016-08-23T06:17:56.110+0800 I SHARDING [RangeDeleter] Deleter starting delete for: shop.user from { userid: 28651.0 } -> { userid: MaxKey }, with opId: 110871
+2016-08-23T06:17:56.110+0800 I SHARDING [RangeDeleter] rangeDeleter deleted 1 documents for shop.user from { userid: 28651.0 } -> { userid: MaxKey }
+2016-08-23T06:17:56.114+0800 I SHARDING [conn28] about to log metadata event into changelog: { _id: "good-2016-08-23T06:17:56.114+0800-57bb7a14727d036c9bb4c3d0", server: "good", clientAddr: "192.168.30.128:35882", time: new Date(1471904276114), what: "moveChunk.from", ns: "shop.user", details: { min: { userid: 28651.0 }, max: { userid: MaxKey }, step 1 of 6: 0, step 2 of 6: 13, step 3 of 6: 1, step 4 of 6: 3, step 5 of 6: 39, step 6 of 6: 3, to: "shard1", from: "shard2", note: "success" } }
+2016-08-23T06:17:56.121+0800 I SHARDING [conn28] distributed lock 'shop.user/good:28000:1471903800:401278145' unlocked. 
+2016-08-23T06:18:00.435+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:18:00.413+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:18:30.453+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:18:30.436+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:18:53.090+0800 I NETWORK  [conn26] end connection 192.168.30.129:57823 (18 connections now open)
+2016-08-23T06:19:00.480+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:19:00.454+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:19:30.491+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:19:30.481+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:20:00.506+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:20:00.492+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:20:30.524+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:20:30.507+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:21:00.547+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:21:00.525+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:21:30.563+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:21:30.548+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:22:00.583+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:22:00.564+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:22:30.607+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:22:30.584+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms
+2016-08-23T06:23:00.630+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:23:00.607+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:28000:1471903800:401278145', sleeping for 30000ms

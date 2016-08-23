@@ -1,0 +1,394 @@
+2016-08-23T06:07:57.272+0800 I CONTROL  [main] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-08-23T06:07:57.272+0800 I CONTROL  [main] 
+2016-08-23T06:07:57.296+0800 I SHARDING [mongosMain] MongoS version 3.2.9 starting: pid=2530 port=27017 64-bit host=good (--help for usage)
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain] db version v3.2.9
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain] git version: 22ec9e93b40c85fc7cae7d56e7d6a02fd811088c
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain] OpenSSL version: OpenSSL 1.0.1e-fips 11 Feb 2013
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain] allocator: tcmalloc
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain] modules: none
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain] build environment:
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain]     distmod: rhel62
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain]     distarch: x86_64
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain]     target_arch: x86_64
+2016-08-23T06:07:57.296+0800 I CONTROL  [mongosMain] options: { config: "monogs.conf", net: { maxIncomingConnections: 1024, port: 27017 }, processManagement: { fork: true }, security: { authorization: "disabled" }, sharding: { chunkSize: 5, configDB: "192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002" }, systemLog: { destination: "file", path: "/data/database/mongo/data/mongos/data/mongos.log" } }
+2016-08-23T06:07:57.296+0800 I SHARDING [mongosMain] Updating config server connection string to: 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002
+2016-08-23T06:07:57.300+0800 I NETWORK  [mongosMain] SyncClusterConnection connecting to [192.168.30.128:27000]
+2016-08-23T06:07:57.301+0800 I SHARDING [LockPinger] creating distributed lock ping thread for 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 and process good:27017:1471903677:315406709 (sleeping for 30000ms)
+2016-08-23T06:07:57.301+0800 I NETWORK  [LockPinger] SyncClusterConnection connecting to [192.168.30.128:27000]
+2016-08-23T06:07:57.301+0800 I NETWORK  [mongosMain] SyncClusterConnection connecting to [192.168.30.128:27001]
+2016-08-23T06:07:57.301+0800 I NETWORK  [LockPinger] SyncClusterConnection connecting to [192.168.30.128:27001]
+2016-08-23T06:07:57.302+0800 I NETWORK  [mongosMain] SyncClusterConnection connecting to [192.168.30.128:27002]
+2016-08-23T06:07:57.302+0800 I NETWORK  [LockPinger] SyncClusterConnection connecting to [192.168.30.128:27002]
+2016-08-23T06:07:57.325+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:07:57.303+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:07:57.330+0800 I NETWORK  [mongosMain]  --maxConns too high, can only handle 819
+2016-08-23T06:07:57.330+0800 I NETWORK  [mongosMain] waiting for connections on port 27017
+2016-08-23T06:07:57.330+0800 I SHARDING [Balancer] about to contact config servers and shards
+2016-08-23T06:07:57.330+0800 I SHARDING [Balancer] config servers and shards contacted successfully
+2016-08-23T06:07:57.330+0800 I SHARDING [Balancer] balancer id: good:27017 started
+2016-08-23T06:07:57.331+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2016-08-23T06:07:57.368+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb77bde711cb43affe40fc
+2016-08-23T06:07:57.368+0800 I NETWORK  [Balancer] SyncClusterConnection connecting to [192.168.30.128:27000]
+2016-08-23T06:07:57.368+0800 I NETWORK  [Balancer] SyncClusterConnection connecting to [192.168.30.128:27001]
+2016-08-23T06:07:57.369+0800 I NETWORK  [Balancer] SyncClusterConnection connecting to [192.168.30.128:27002]
+2016-08-23T06:07:57.384+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:08:05.719+0800 I NETWORK  [mongosMain] connection accepted from 127.0.0.1:45399 #1 (1 connection now open)
+2016-08-23T06:08:07.407+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb77c7e711cb43affe40fd
+2016-08-23T06:08:07.420+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:08:12.339+0800 W NETWORK  [HostnameCanonicalizationWorker] Failed to obtain address information for hostname good: Name or service not known
+2016-08-23T06:08:17.438+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb77d1e711cb43affe40fe
+2016-08-23T06:08:17.443+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:08:27.339+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:08:27.326+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:08:27.454+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb77dbe711cb43affe40ff
+2016-08-23T06:08:27.457+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:08:37.474+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb77e5e711cb43affe4100
+2016-08-23T06:08:37.477+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:08:47.505+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb77efe711cb43affe4101
+2016-08-23T06:08:47.516+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:08:53.515+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Connecting to 192.168.30.128:27000
+2016-08-23T06:08:53.516+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Successfully connected to 192.168.30.128:27000
+2016-08-23T06:08:53.517+0800 I COMMAND  [conn1] addShard request '{ addShard: "192.168.30.128:27000" }' failed: the specified mongod is a legacy-style config server and cannot be used as a shard server
+2016-08-23T06:08:57.368+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:08:57.340+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:08:57.545+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb77f9e711cb43affe4102
+2016-08-23T06:08:57.548+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:09:07.570+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7803e711cb43affe4103
+2016-08-23T06:09:07.575+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:09:17.588+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb780de711cb43affe4104
+2016-08-23T06:09:17.591+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:09:25.372+0800 I NETWORK  [conn1] Starting new replica set monitor for shard1/192.168.30.128:27000
+2016-08-23T06:09:25.374+0800 I NETWORK  [ReplicaSetMonitorWatcher] starting
+2016-08-23T06:09:25.374+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903765374), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:25.374+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:25.375+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 1 checks in a row. Polling will stop after 29 more failed checks
+2016-08-23T06:09:25.875+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903765875), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:25.875+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:25.875+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 2 checks in a row. Polling will stop after 28 more failed checks
+2016-08-23T06:09:26.377+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903766377), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:26.377+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:26.377+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 3 checks in a row. Polling will stop after 27 more failed checks
+2016-08-23T06:09:26.878+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903766878), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:26.879+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:26.879+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 4 checks in a row. Polling will stop after 26 more failed checks
+2016-08-23T06:09:27.372+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:09:27.368+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:09:27.379+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903767379), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:27.379+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:27.379+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 5 checks in a row. Polling will stop after 25 more failed checks
+2016-08-23T06:09:27.605+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7817e711cb43affe4105
+2016-08-23T06:09:27.608+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:09:27.880+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903767880), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:27.880+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:27.880+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 6 checks in a row. Polling will stop after 24 more failed checks
+2016-08-23T06:09:28.381+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903768381), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:28.381+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:28.381+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 7 checks in a row. Polling will stop after 23 more failed checks
+2016-08-23T06:09:28.882+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903768881), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:28.882+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:28.882+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 8 checks in a row. Polling will stop after 22 more failed checks
+2016-08-23T06:09:29.382+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903769382), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:29.382+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:29.382+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 9 checks in a row. Polling will stop after 21 more failed checks
+2016-08-23T06:09:29.883+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903769883), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:29.883+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:29.883+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 10 checks in a row. Polling will stop after 20 more failed checks
+2016-08-23T06:09:29.912+0800 I NETWORK  [mongosMain] connection accepted from 127.0.0.1:45402 #2 (2 connections now open)
+2016-08-23T06:09:29.914+0800 I NETWORK  [conn2] end connection 127.0.0.1:45402 (1 connection now open)
+2016-08-23T06:09:30.385+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903770385), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:30.385+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:30.385+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 11 checks in a row. Polling will stop after 19 more failed checks
+2016-08-23T06:09:30.886+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903770886), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:30.886+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:30.886+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 12 checks in a row. Polling will stop after 18 more failed checks
+2016-08-23T06:09:31.325+0800 I NETWORK  [mongosMain] connection accepted from 127.0.0.1:45403 #3 (2 connections now open)
+2016-08-23T06:09:31.387+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903771387), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:31.387+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:31.387+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 13 checks in a row. Polling will stop after 17 more failed checks
+2016-08-23T06:09:31.888+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903771888), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:31.888+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:31.888+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 14 checks in a row. Polling will stop after 16 more failed checks
+2016-08-23T06:09:32.389+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903772389), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:32.389+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:32.389+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 15 checks in a row. Polling will stop after 15 more failed checks
+2016-08-23T06:09:32.890+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903772890), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:32.890+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:32.890+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 16 checks in a row. Polling will stop after 14 more failed checks
+2016-08-23T06:09:33.391+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903773391), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:33.391+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:33.391+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 17 checks in a row. Polling will stop after 13 more failed checks
+2016-08-23T06:09:33.892+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903773892), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:33.892+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:33.892+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 18 checks in a row. Polling will stop after 12 more failed checks
+2016-08-23T06:09:34.394+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903774393), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:34.394+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:34.394+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 19 checks in a row. Polling will stop after 11 more failed checks
+2016-08-23T06:09:34.894+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903774894), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:34.894+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:34.894+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 20 checks in a row. Polling will stop after 10 more failed checks
+2016-08-23T06:09:35.374+0800 W NETWORK  [ReplicaSetMonitorWatcher] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903775374), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:35.374+0800 W NETWORK  [ReplicaSetMonitorWatcher] No primary detected for set shard1
+2016-08-23T06:09:35.374+0800 I NETWORK  [ReplicaSetMonitorWatcher] All nodes for set shard1 are down. This has happened for 21 checks in a row. Polling will stop after 9 more failed checks
+2016-08-23T06:09:35.395+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903775395), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:35.395+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:35.395+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 22 checks in a row. Polling will stop after 8 more failed checks
+2016-08-23T06:09:35.896+0800 W NETWORK  [conn1] node: 192.168.30.128:27000 isn't a part of set: shard1 ismaster: { ismaster: true, configsvr: 0, maxBsonObjectSize: 16777216, maxMessageSizeBytes: 48000000, maxWriteBatchSize: 1000, localTime: new Date(1471903775896), maxWireVersion: 4, minWireVersion: 0, ok: 1.0 }
+2016-08-23T06:09:35.896+0800 W NETWORK  [conn1] No primary detected for set shard1
+2016-08-23T06:09:35.896+0800 I NETWORK  [conn1] All nodes for set shard1 are down. This has happened for 23 checks in a row. Polling will stop after 7 more failed checks
+2016-08-23T06:09:35.897+0800 I COMMAND  [conn1] addShard request '{ addShard: "shard1/192.168.30.128:27000" }' failed: could not find host matching read preference { mode: "primary" } for set shard1
+2016-08-23T06:09:35.897+0800 I NETWORK  [conn1] end connection 127.0.0.1:45399 (1 connection now open)
+2016-08-23T06:09:37.631+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7821e711cb43affe4106
+2016-08-23T06:09:37.635+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:09:47.654+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb782be711cb43affe4107
+2016-08-23T06:09:47.658+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:09:49.403+0800 I NETWORK  [conn3] Starting new replica set monitor for shard1/192.168.30.129:27000
+2016-08-23T06:09:49.408+0800 I NETWORK  [conn3] changing hosts to shard1/192.168.30.129:27000,192.168.30.129:27001,192.168.30.129:27002 from shard1/192.168.30.129:27000
+2016-08-23T06:09:49.408+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Connecting to 192.168.30.129:27000
+2016-08-23T06:09:49.409+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Successfully connected to 192.168.30.129:27000
+2016-08-23T06:09:49.412+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Connecting to 192.168.30.129:27000
+2016-08-23T06:09:49.414+0800 I SHARDING [conn3] going to add shard: { _id: "shard1", host: "shard1/192.168.30.129:27000,192.168.30.129:27001,192.168.30.129:27002" }
+2016-08-23T06:09:49.415+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Successfully connected to 192.168.30.129:27000
+2016-08-23T06:09:49.462+0800 I SHARDING [conn3] about to log metadata event into changelog: { _id: "good-2016-08-23T06:09:49.462+0800-57bb782de711cb43affe4108", server: "good", clientAddr: "127.0.0.1:45403", time: new Date(1471903789462), what: "addShard", ns: "", details: { name: "shard1", host: "shard1/192.168.30.129:27000" } }
+2016-08-23T06:09:57.384+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:09:57.373+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:09:57.661+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-0] Connecting to 192.168.30.129:27000
+2016-08-23T06:09:57.675+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-0] Successfully connected to 192.168.30.129:27000
+2016-08-23T06:09:57.704+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7835e711cb43affe4109
+2016-08-23T06:09:57.708+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:09:57.989+0800 I NETWORK  [conn3] Starting new replica set monitor for shard2/192.168.30.129:28000
+2016-08-23T06:09:57.996+0800 I NETWORK  [conn3] changing hosts to shard2/192.168.30.129:28000,192.168.30.129:28001,192.168.30.129:28002 from shard2/192.168.30.129:28000
+2016-08-23T06:09:57.996+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Connecting to 192.168.30.129:28000
+2016-08-23T06:09:57.999+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Successfully connected to 192.168.30.129:28000
+2016-08-23T06:09:58.006+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Connecting to 192.168.30.129:28000
+2016-08-23T06:09:58.009+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-TaskExecutor-0] Successfully connected to 192.168.30.129:28000
+2016-08-23T06:09:58.010+0800 I SHARDING [conn3] going to add shard: { _id: "shard2", host: "shard2/192.168.30.129:28000,192.168.30.129:28001,192.168.30.129:28002" }
+2016-08-23T06:09:58.011+0800 I SHARDING [conn3] about to log metadata event into changelog: { _id: "good-2016-08-23T06:09:58.011+0800-57bb7836e711cb43affe410a", server: "good", clientAddr: "127.0.0.1:45403", time: new Date(1471903798011), what: "addShard", ns: "", details: { name: "shard2", host: "shard2/192.168.30.129:28000" } }
+2016-08-23T06:10:03.483+0800 I NETWORK  [conn3] SyncClusterConnection connecting to [192.168.30.128:27000]
+2016-08-23T06:10:03.484+0800 I NETWORK  [conn3] SyncClusterConnection connecting to [192.168.30.128:27001]
+2016-08-23T06:10:03.485+0800 I NETWORK  [conn3] SyncClusterConnection connecting to [192.168.30.128:27002]
+2016-08-23T06:10:07.712+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-0] Connecting to 192.168.30.129:28000
+2016-08-23T06:10:07.720+0800 I ASIO     [NetworkInterfaceASIO-ShardRegistry-0] Successfully connected to 192.168.30.129:28000
+2016-08-23T06:10:07.736+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb783fe711cb43affe410b
+2016-08-23T06:10:07.747+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:10:17.765+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7849e711cb43affe410c
+2016-08-23T06:10:17.769+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:10:27.395+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:10:27.385+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:10:27.790+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7853e711cb43affe410d
+2016-08-23T06:10:27.792+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:10:34.962+0800 I SHARDING [conn3] distributed lock 'shop/good:27017:1471903677:315406709' acquired for 'enableSharding', ts : 57bb785ae711cb43affe410e
+2016-08-23T06:10:34.965+0800 I SHARDING [conn3] Placing [shop] on: shard1
+2016-08-23T06:10:34.965+0800 I SHARDING [conn3] Enabling sharding for database [shop] in config db
+2016-08-23T06:10:34.991+0800 I SHARDING [conn3] distributed lock 'shop/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:10:37.808+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb785de711cb43affe410f
+2016-08-23T06:10:37.810+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:10:47.833+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7867e711cb43affe4110
+2016-08-23T06:10:47.837+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:10:57.400+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:10:57.396+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:10:57.851+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7871e711cb43affe4111
+2016-08-23T06:10:57.854+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:11:00.550+0800 I COMMAND  [conn3] CMD: shardcollection: { shardCollection: "shop.user", key: { userid: 1.0 } }
+2016-08-23T06:11:00.557+0800 I SHARDING [conn3] distributed lock 'shop.user/good:27017:1471903677:315406709' acquired for 'shardCollection', ts : 57bb7874e711cb43affe4112
+2016-08-23T06:11:00.558+0800 I SHARDING [conn3] enable sharding on: shop.user with shard key: { userid: 1.0 }
+2016-08-23T06:11:00.558+0800 I SHARDING [conn3] about to log metadata event into changelog: { _id: "good-2016-08-23T06:11:00.558+0800-57bb7874e711cb43affe4113", server: "good", clientAddr: "127.0.0.1:45403", time: new Date(1471903860558), what: "shardCollection.start", ns: "shop.user", details: { shardKey: { userid: 1.0 }, collection: "shop.user", primary: "shard1:shard1/192.168.30.129:27000,192.168.30.129:27001,192.168.30.129:27002", initShards: [], numChunks: 1 } }
+2016-08-23T06:11:00.560+0800 I SHARDING [conn3] going to create 1 chunk(s) for: shop.user using new epoch 57bb7874e711cb43affe4114
+2016-08-23T06:11:00.565+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 2 version: 1|0||57bb7874e711cb43affe4114 based on: (empty)
+2016-08-23T06:11:00.587+0800 I SHARDING [conn3] about to log metadata event into changelog: { _id: "good-2016-08-23T06:11:00.587+0800-57bb7874e711cb43affe4115", server: "good", clientAddr: "127.0.0.1:45403", time: new Date(1471903860587), what: "shardCollection.end", ns: "shop.user", details: { version: "1|0||57bb7874e711cb43affe4114" } }
+2016-08-23T06:11:00.596+0800 I SHARDING [conn3] distributed lock 'shop.user/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:11:00.596+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 3 version: 1|0||57bb7874e711cb43affe4114 based on: (empty)
+2016-08-23T06:11:07.866+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb787be711cb43affe4116
+2016-08-23T06:11:07.875+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:11:17.897+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7885e711cb43affe4117
+2016-08-23T06:11:17.906+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:11:27.410+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:11:27.400+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:11:27.925+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb788fe711cb43affe4118
+2016-08-23T06:11:27.933+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:11:37.945+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7899e711cb43affe4119
+2016-08-23T06:11:37.955+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:11:47.977+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78a3e711cb43affe411a
+2016-08-23T06:11:47.988+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:11:57.423+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:11:57.410+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:11:58.013+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78ade711cb43affe411b
+2016-08-23T06:11:58.024+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:12:08.044+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78b8e711cb43affe411c
+2016-08-23T06:12:08.054+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:12:18.079+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78c2e711cb43affe411d
+2016-08-23T06:12:18.090+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:12:27.435+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:12:27.425+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:12:28.116+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78cce711cb43affe411e
+2016-08-23T06:12:28.125+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:12:38.144+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78d6e711cb43affe411f
+2016-08-23T06:12:38.155+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:12:48.179+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78e0e711cb43affe4120
+2016-08-23T06:12:48.188+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:12:57.440+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:12:57.436+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:12:58.201+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78eae711cb43affe4121
+2016-08-23T06:12:58.208+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:13:08.224+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78f4e711cb43affe4122
+2016-08-23T06:13:08.232+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:13:18.245+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb78fee711cb43affe4123
+2016-08-23T06:13:18.252+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:13:27.450+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:13:27.441+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:13:28.280+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7908e711cb43affe4124
+2016-08-23T06:13:28.291+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:13:38.321+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7912e711cb43affe4125
+2016-08-23T06:13:38.330+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:13:48.353+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb791ce711cb43affe4126
+2016-08-23T06:13:48.362+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:13:57.464+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:13:57.451+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:13:58.388+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7926e711cb43affe4127
+2016-08-23T06:13:58.397+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:14:08.422+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7930e711cb43affe4128
+2016-08-23T06:14:08.431+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:14:18.454+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb793ae711cb43affe4129
+2016-08-23T06:14:18.462+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:14:27.472+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:14:27.465+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:14:28.481+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7944e711cb43affe412a
+2016-08-23T06:14:28.490+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:14:38.510+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb794ee711cb43affe412b
+2016-08-23T06:14:38.518+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:14:48.527+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7958e711cb43affe412c
+2016-08-23T06:14:48.535+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:14:57.476+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:14:57.472+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:14:58.551+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7962e711cb43affe412d
+2016-08-23T06:14:58.566+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:15:08.587+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb796ce711cb43affe412e
+2016-08-23T06:15:08.597+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:15:10.291+0800 I COMMAND  [conn3] splitting chunk [{ userid: MinKey },{ userid: MaxKey }) in collection shop.user on shard shard1
+2016-08-23T06:15:10.384+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 4 version: 1|2||57bb7874e711cb43affe4114 based on: 1|0||57bb7874e711cb43affe4114
+2016-08-23T06:15:10.385+0800 I COMMAND  [conn3] splitting chunk [{ userid: 1000.0 },{ userid: MaxKey }) in collection shop.user on shard shard1
+2016-08-23T06:15:10.408+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 5 version: 1|4||57bb7874e711cb43affe4114 based on: 1|2||57bb7874e711cb43affe4114
+2016-08-23T06:15:10.409+0800 I COMMAND  [conn3] splitting chunk [{ userid: 2000.0 },{ userid: MaxKey }) in collection shop.user on shard shard1
+2016-08-23T06:15:10.434+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 6 version: 1|6||57bb7874e711cb43affe4114 based on: 1|4||57bb7874e711cb43affe4114
+2016-08-23T06:15:10.435+0800 I COMMAND  [conn3] splitting chunk [{ userid: 3000.0 },{ userid: MaxKey }) in collection shop.user on shard shard1
+2016-08-23T06:15:10.458+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 7 version: 1|8||57bb7874e711cb43affe4114 based on: 1|6||57bb7874e711cb43affe4114
+2016-08-23T06:15:18.627+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7976e711cb43affe412f
+2016-08-23T06:15:18.636+0800 I SHARDING [Balancer]  ns: shop.user going to move { _id: "shop.user-userid_MinKey", ns: "shop.user", min: { userid: MinKey }, max: { userid: 1000.0 }, shard: "shard1", lastmod: Timestamp 1000|1, lastmodEpoch: ObjectId('57bb7874e711cb43affe4114') } from: shard1 to: shard2 tag []
+2016-08-23T06:15:18.636+0800 I SHARDING [Balancer] moving chunk ns: shop.user moving ( ns: shop.user, shard: shard1, lastmod: 1|1||57bb7874e711cb43affe4114, min: { userid: MinKey }, max: { userid: 1000.0 }) shard1 -> shard2
+2016-08-23T06:15:18.895+0800 I SHARDING [Balancer] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 8 version: 2|1||57bb7874e711cb43affe4114 based on: 1|8||57bb7874e711cb43affe4114
+2016-08-23T06:15:18.929+0800 I SHARDING [Balancer] about to log metadata event into actionlog: { _id: "good-2016-08-23T06:15:18.929+0800-57bb7976e711cb43affe4130", server: "good", clientAddr: "", time: new Date(1471904118929), what: "balancer.round", ns: "", details: { executionTimeMillis: 295, errorOccured: false, candidateChunks: 1, chunksMoved: 1 } }
+2016-08-23T06:15:18.933+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:15:19.948+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7977e711cb43affe4131
+2016-08-23T06:15:19.953+0800 I SHARDING [Balancer]  ns: shop.user going to move { _id: "shop.user-userid_1000.0", ns: "shop.user", min: { userid: 1000.0 }, max: { userid: 2000.0 }, shard: "shard1", lastmod: Timestamp 2000|1, lastmodEpoch: ObjectId('57bb7874e711cb43affe4114') } from: shard1 to: shard2 tag []
+2016-08-23T06:15:19.953+0800 I SHARDING [Balancer] moving chunk ns: shop.user moving ( ns: shop.user, shard: shard1, lastmod: 2|1||57bb7874e711cb43affe4114, min: { userid: 1000.0 }, max: { userid: 2000.0 }) shard1 -> shard2
+2016-08-23T06:15:20.026+0800 I SHARDING [Balancer] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 9 version: 3|1||57bb7874e711cb43affe4114 based on: 2|1||57bb7874e711cb43affe4114
+2016-08-23T06:15:20.026+0800 I SHARDING [Balancer] about to log metadata event into actionlog: { _id: "good-2016-08-23T06:15:20.026+0800-57bb7978e711cb43affe4132", server: "good", clientAddr: "", time: new Date(1471904120026), what: "balancer.round", ns: "", details: { executionTimeMillis: 92, errorOccured: false, candidateChunks: 1, chunksMoved: 1 } }
+2016-08-23T06:15:20.034+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:15:21.050+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7979e711cb43affe4133
+2016-08-23T06:15:21.061+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:15:27.486+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:15:27.476+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:15:31.080+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7983e711cb43affe4134
+2016-08-23T06:15:31.093+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:15:41.114+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb798de711cb43affe4135
+2016-08-23T06:15:41.123+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:15:51.135+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7997e711cb43affe4136
+2016-08-23T06:15:51.143+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:15:57.498+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:15:57.487+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:16:01.168+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79a1e711cb43affe4137
+2016-08-23T06:16:01.177+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:16:11.194+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79abe711cb43affe4138
+2016-08-23T06:16:11.207+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:16:21.226+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79b5e711cb43affe4139
+2016-08-23T06:16:21.236+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:16:27.508+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:16:27.498+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:16:31.257+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79bfe711cb43affe413a
+2016-08-23T06:16:31.268+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:16:41.281+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79c9e711cb43affe413b
+2016-08-23T06:16:41.292+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:16:51.302+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79d3e711cb43affe413c
+2016-08-23T06:16:51.318+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:16:57.512+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:16:57.509+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:17:01.330+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79dde711cb43affe413d
+2016-08-23T06:17:01.339+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:17:11.352+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79e7e711cb43affe413e
+2016-08-23T06:17:11.363+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:17:21.373+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79f1e711cb43affe413f
+2016-08-23T06:17:21.383+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:17:26.185+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 10 version: 3|4||57bb7874e711cb43affe4114 based on: 3|1||57bb7874e711cb43affe4114
+2016-08-23T06:17:26.185+0800 I SHARDING [conn3] autosplitted shop.user shard: ns: shop.user, shard: shard1, lastmod: 1|8||57bb7874e711cb43affe4114, min: { userid: 4000.0 }, max: { userid: MaxKey } into 3 (splitThreshold 1179648) (migrate suggested)
+2016-08-23T06:17:26.189+0800 I SHARDING [conn3] moving chunk (auto): ns: shop.user, shard: shard1, lastmod: 3|4||57bb7874e711cb43affe4114, min: { userid: 15802.0 }, max: { userid: MaxKey } to: shard2
+2016-08-23T06:17:26.189+0800 I SHARDING [conn3] moving chunk ns: shop.user moving ( ns: shop.user, shard: shard1, lastmod: 3|4||57bb7874e711cb43affe4114, min: { userid: 15802.0 }, max: { userid: MaxKey }) shard1 -> shard2
+2016-08-23T06:17:26.256+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 11 version: 4|1||57bb7874e711cb43affe4114 based on: 3|4||57bb7874e711cb43affe4114
+2016-08-23T06:17:27.516+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:17:27.513+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:17:31.398+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb79fbe711cb43affe4140
+2016-08-23T06:17:31.409+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:17:41.421+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a05e711cb43affe4141
+2016-08-23T06:17:41.432+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:17:51.444+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a0fe711cb43affe4142
+2016-08-23T06:17:51.463+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:17:57.520+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:17:57.517+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:18:01.477+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a19e711cb43affe4143
+2016-08-23T06:18:01.488+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:18:03.684+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 12 version: 4|4||57bb7874e711cb43affe4114 based on: 4|1||57bb7874e711cb43affe4114
+2016-08-23T06:18:03.684+0800 I SHARDING [conn3] autosplitted shop.user shard: ns: shop.user, shard: shard2, lastmod: 4|0||57bb7874e711cb43affe4114, min: { userid: 15802.0 }, max: { userid: MaxKey } into 3 (splitThreshold 1179648) (migrate suggested)
+2016-08-23T06:18:03.689+0800 I SHARDING [conn3] moving chunk (auto): ns: shop.user, shard: shard2, lastmod: 4|4||57bb7874e711cb43affe4114, min: { userid: 28651.0 }, max: { userid: MaxKey } to: shard1
+2016-08-23T06:18:03.689+0800 I SHARDING [conn3] moving chunk ns: shop.user moving ( ns: shop.user, shard: shard2, lastmod: 4|4||57bb7874e711cb43affe4114, min: { userid: 28651.0 }, max: { userid: MaxKey }) shard2 -> shard1
+2016-08-23T06:18:03.760+0800 I SHARDING [conn3] ChunkManager: time to load chunks for shop.user: 0ms sequenceNumber: 13 version: 5|1||57bb7874e711cb43affe4114 based on: 4|4||57bb7874e711cb43affe4114
+2016-08-23T06:18:11.499+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a23e711cb43affe4144
+2016-08-23T06:18:11.510+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:18:21.540+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a2de711cb43affe4145
+2016-08-23T06:18:21.553+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:18:27.525+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:18:27.521+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:18:31.565+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a37e711cb43affe4146
+2016-08-23T06:18:31.574+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:18:41.586+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a41e711cb43affe4147
+2016-08-23T06:18:41.596+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:18:51.608+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a4be711cb43affe4148
+2016-08-23T06:18:51.616+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:18:57.529+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:18:57.525+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:19:01.625+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a55e711cb43affe4149
+2016-08-23T06:19:01.634+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:19:11.652+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a5fe711cb43affe414a
+2016-08-23T06:19:11.669+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:19:21.683+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a69e711cb43affe414b
+2016-08-23T06:19:21.690+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:19:27.540+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:19:27.529+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:19:31.703+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a73e711cb43affe414c
+2016-08-23T06:19:31.710+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:19:41.721+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a7de711cb43affe414d
+2016-08-23T06:19:41.730+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:19:51.744+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a87e711cb43affe414e
+2016-08-23T06:19:51.752+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:19:57.557+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:19:57.542+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:20:01.764+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a91e711cb43affe414f
+2016-08-23T06:20:01.772+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:20:11.790+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7a9be711cb43affe4150
+2016-08-23T06:20:11.801+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:20:21.827+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7aa5e711cb43affe4151
+2016-08-23T06:20:21.844+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:20:27.569+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:20:27.558+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:20:31.868+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7aafe711cb43affe4152
+2016-08-23T06:20:31.880+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:20:41.904+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7ab9e711cb43affe4153
+2016-08-23T06:20:41.917+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:20:51.939+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7ac3e711cb43affe4154
+2016-08-23T06:20:51.950+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:20:57.580+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:20:57.570+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:21:01.969+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7acde711cb43affe4155
+2016-08-23T06:21:01.979+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:21:12.008+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7ad7e711cb43affe4156
+2016-08-23T06:21:12.019+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:21:22.038+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7ae2e711cb43affe4157
+2016-08-23T06:21:22.047+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:21:27.589+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:21:27.580+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:21:32.070+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7aece711cb43affe4158
+2016-08-23T06:21:32.078+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:21:42.093+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7af6e711cb43affe4159
+2016-08-23T06:21:42.101+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:21:52.129+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b00e711cb43affe415a
+2016-08-23T06:21:52.139+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:21:57.602+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:21:57.590+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:22:02.160+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b0ae711cb43affe415b
+2016-08-23T06:22:02.169+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:22:12.188+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b14e711cb43affe415c
+2016-08-23T06:22:12.197+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:22:22.225+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b1ee711cb43affe415d
+2016-08-23T06:22:22.234+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:22:27.614+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:22:27.603+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:22:32.256+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b28e711cb43affe415e
+2016-08-23T06:22:32.271+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:22:42.303+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b32e711cb43affe415f
+2016-08-23T06:22:42.317+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:22:52.335+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b3ce711cb43affe4160
+2016-08-23T06:22:52.343+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:22:57.622+0800 I SHARDING [LockPinger] cluster 192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002 pinged successfully at 2016-08-23T06:22:57.614+0800 by distributed lock pinger '192.168.30.128:27000,192.168.30.128:27001,192.168.30.128:27002/good:27017:1471903677:315406709', sleeping for 30000ms
+2016-08-23T06:23:02.368+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b46e711cb43affe4161
+2016-08-23T06:23:02.379+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:23:12.395+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b50e711cb43affe4162
+2016-08-23T06:23:12.403+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 
+2016-08-23T06:23:22.414+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' acquired for 'doing balance round', ts : 57bb7b5ae711cb43affe4163
+2016-08-23T06:23:22.422+0800 I SHARDING [Balancer] distributed lock 'balancer/good:27017:1471903677:315406709' unlocked. 

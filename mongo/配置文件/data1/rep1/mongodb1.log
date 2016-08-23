@@ -1,0 +1,81 @@
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten] MongoDB starting : pid=2091 port=28001 dbpath=/data/database/mongo/data1/rep1 64-bit host=good
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten] db version v3.2.9
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten] git version: 22ec9e93b40c85fc7cae7d56e7d6a02fd811088c
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1e-fips 11 Feb 2013
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten] modules: none
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten] build environment:
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten]     distmod: rhel62
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2016-08-23T05:47:27.593+0800 I CONTROL  [initandlisten] options: { config: "rep1/rep1.conf", net: { maxIncomingConnections: 800, port: 28001 }, processManagement: { fork: true }, replication: { replSet: "shard2" }, storage: { dbPath: "/data/database/mongo/data1/rep1", mmapv1: { smallFiles: true } }, systemLog: { destination: "file", logAppend: true, path: "/data/database/mongo/data1/rep1/mongodb1.log" } }
+2016-08-23T05:47:27.594+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1G,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2016-08-23T05:47:27.695+0800 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2016-08-23T05:47:27.695+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-08-23T05:47:27.695+0800 I CONTROL  [initandlisten] 
+2016-08-23T05:47:27.696+0800 I CONTROL  [initandlisten] 
+2016-08-23T05:47:27.696+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2016-08-23T05:47:27.696+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2016-08-23T05:47:27.696+0800 I CONTROL  [initandlisten] 
+2016-08-23T05:47:27.696+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2016-08-23T05:47:27.696+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2016-08-23T05:47:27.696+0800 I CONTROL  [initandlisten] 
+2016-08-23T05:47:27.710+0800 I REPL     [initandlisten] Did not find local voted for document at startup;  NoMatchingDocument: Did not find replica set lastVote document in local.replset.election
+2016-08-23T05:47:27.710+0800 I REPL     [initandlisten] Did not find local replica set configuration document at startup;  NoMatchingDocument: Did not find replica set configuration document in local.system.replset
+2016-08-23T05:47:27.710+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/database/mongo/data1/rep1/diagnostic.data'
+2016-08-23T05:47:27.712+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2016-08-23T05:47:27.738+0800 I NETWORK  [initandlisten] waiting for connections on port 28001
+2016-08-23T05:47:42.724+0800 W NETWORK  [HostnameCanonicalizationWorker] Failed to obtain address information for hostname good: Name or service not known
+2016-08-23T05:49:51.750+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:52699 #1 (1 connection now open)
+2016-08-23T05:49:51.751+0800 I NETWORK  [conn1] end connection 192.168.30.129:52699 (0 connections now open)
+2016-08-23T05:49:51.755+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:52701 #2 (1 connection now open)
+2016-08-23T05:49:51.761+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 192.168.30.129:28000
+2016-08-23T05:49:51.770+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 192.168.30.129:28000
+2016-08-23T05:49:53.775+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:52707 #3 (2 connections now open)
+2016-08-23T05:49:53.779+0800 I NETWORK  [conn3] end connection 192.168.30.129:52707 (1 connection now open)
+2016-08-23T05:49:53.817+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:52709 #4 (2 connections now open)
+2016-08-23T05:49:53.817+0800 I REPL     [replExecDBWorker-2] Starting replication applier threads
+2016-08-23T05:49:53.817+0800 I REPL     [ReplicationExecutor] New replica set config in use: { _id: "shard2", version: 1, protocolVersion: 1, members: [ { _id: 0, host: "192.168.30.129:28000", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 1, host: "192.168.30.129:28001", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 2, host: "192.168.30.129:28002", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 } ], settings: { chainingAllowed: true, heartbeatIntervalMillis: 2000, heartbeatTimeoutSecs: 10, electionTimeoutMillis: 10000, getLastErrorModes: {}, getLastErrorDefaults: { w: 1, wtimeout: 0 }, replicaSetId: ObjectId('57bb737f727d036c9bb4c3c3') } }
+2016-08-23T05:49:53.817+0800 I REPL     [ReplicationExecutor] This node is 192.168.30.129:28001 in the config
+2016-08-23T05:49:53.817+0800 I REPL     [ReplicationExecutor] transition to STARTUP2
+2016-08-23T05:49:53.817+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 192.168.30.129:28002
+2016-08-23T05:49:53.818+0800 I REPL     [ReplicationExecutor] Member 192.168.30.129:28000 is now in state SECONDARY
+2016-08-23T05:49:53.819+0800 I REPL     [rsSync] ******
+2016-08-23T05:49:53.819+0800 I REPL     [rsSync] creating replication oplog of size: 990MB...
+2016-08-23T05:49:53.820+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 192.168.30.129:28002
+2016-08-23T05:49:53.820+0800 I REPL     [ReplicationExecutor] Member 192.168.30.129:28002 is now in state STARTUP2
+2016-08-23T05:49:53.844+0800 I STORAGE  [rsSync] Starting WiredTigerRecordStoreThread local.oplog.rs
+2016-08-23T05:49:53.845+0800 I STORAGE  [rsSync] The size storer reports that the oplog contains 0 records totaling to 0 bytes
+2016-08-23T05:49:53.845+0800 I STORAGE  [rsSync] Scanning the oplog to determine where to place markers for truncation
+2016-08-23T05:49:53.888+0800 I REPL     [rsSync] ******
+2016-08-23T05:49:53.888+0800 I REPL     [rsSync] initial sync pending
+2016-08-23T05:49:53.908+0800 I REPL     [ReplicationExecutor] syncing from: 192.168.30.129:28000
+2016-08-23T05:49:53.920+0800 I REPL     [rsSync] initial sync drop all databases
+2016-08-23T05:49:53.921+0800 I STORAGE  [rsSync] dropAllDatabasesExceptLocal 1
+2016-08-23T05:49:53.921+0800 I REPL     [rsSync] initial sync clone all databases
+2016-08-23T05:49:53.921+0800 I REPL     [rsSync] initial sync data copy, starting syncup
+2016-08-23T05:49:53.922+0800 I REPL     [rsSync] oplog sync 1 of 3
+2016-08-23T05:49:53.922+0800 I REPL     [rsSync] oplog sync 2 of 3
+2016-08-23T05:49:53.922+0800 I REPL     [rsSync] initial sync building indexes
+2016-08-23T05:49:53.922+0800 I REPL     [rsSync] oplog sync 3 of 3
+2016-08-23T05:49:53.927+0800 I REPL     [rsSync] initial sync finishing up
+2016-08-23T05:49:53.927+0800 I REPL     [rsSync] set minValid=(term: -1, timestamp: Aug 23 05:49:51:1)
+2016-08-23T05:49:53.931+0800 I REPL     [rsSync] initial sync done
+2016-08-23T05:49:53.933+0800 I REPL     [ReplicationExecutor] transition to RECOVERING
+2016-08-23T05:49:53.934+0800 I REPL     [ReplicationExecutor] transition to SECONDARY
+2016-08-23T05:49:54.821+0800 I REPL     [ReplicationExecutor] could not find member to sync from
+2016-08-23T05:49:54.823+0800 I REPL     [ReplicationExecutor] Member 192.168.30.129:28002 is now in state SECONDARY
+2016-08-23T05:50:04.829+0800 I REPL     [ReplicationExecutor] Member 192.168.30.129:28000 is now in state PRIMARY
+2016-08-23T05:50:05.848+0800 I REPL     [ReplicationExecutor] syncing from: 192.168.30.129:28000
+2016-08-23T05:50:05.852+0800 I REPL     [SyncSourceFeedback] setting syncSourceFeedback to 192.168.30.129:28000
+2016-08-23T05:50:05.852+0800 I ASIO     [NetworkInterfaceASIO-BGSync-0] Connecting to 192.168.30.129:28000
+2016-08-23T05:50:05.854+0800 I ASIO     [NetworkInterfaceASIO-BGSync-0] Successfully connected to 192.168.30.129:28000
+2016-08-23T05:50:19.779+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:39710 #5 (3 connections now open)
+2016-08-23T06:09:57.750+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:37071 #6 (4 connections now open)
+2016-08-23T06:10:10.089+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:52743 #7 (5 connections now open)
+2016-08-23T06:15:11.126+0800 I INDEX    [repl writer worker 6] build index on: shop.user properties: { v: 1, key: { userid: 1.0 }, name: "userid_1", ns: "shop.user" }
+2016-08-23T06:15:11.126+0800 I INDEX    [repl writer worker 6] 	 building index using bulk method
+2016-08-23T06:15:11.127+0800 I INDEX    [repl writer worker 6] build index done.  scanned 0 total records. 0 secs
+2016-08-23T06:15:20.075+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:52761 #8 (6 connections now open)
+2016-08-23T06:16:36.755+0800 I ASIO     [NetworkInterfaceASIO-BGSync-0] Connecting to 192.168.30.129:28000
+2016-08-23T06:16:36.778+0800 I ASIO     [NetworkInterfaceASIO-BGSync-0] Successfully connected to 192.168.30.129:28000

@@ -1,0 +1,95 @@
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten] MongoDB starting : pid=2392 port=27002 dbpath=/data/database/mongo/data/configcsr/c3 master=1 64-bit host=good
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten] db version v3.2.9
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten] git version: 22ec9e93b40c85fc7cae7d56e7d6a02fd811088c
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1e-fips 11 Feb 2013
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten] modules: none
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten] build environment:
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten]     distmod: rhel62
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2016-08-23T06:04:58.952+0800 I CONTROL  [initandlisten] options: { config: "confs/conf3.conf", net: { maxIncomingConnections: 1024, port: 27002 }, processManagement: { fork: true }, security: { authorization: "disabled" }, sharding: { clusterRole: "configsvr" }, storage: { dbPath: "/data/database/mongo/data/configcsr/c3", mmapv1: { nsSize: 16, quota: { enforced: true, maxFilesPerDB: 1024 } } }, systemLog: { destination: "file", path: "/data/database/mongo/data/configcsr/c3/c3.log" } }
+2016-08-23T06:04:58.952+0800 I NETWORK  [initandlisten]  --maxConns too high, can only handle 819
+2016-08-23T06:04:58.952+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1G,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2016-08-23T06:04:59.043+0800 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] 
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] 
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] 
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2016-08-23T06:04:59.043+0800 I CONTROL  [initandlisten] 
+2016-08-23T06:04:59.067+0800 I REPL     [initandlisten] ******
+2016-08-23T06:04:59.067+0800 I REPL     [initandlisten] creating replication oplog of size: 5MB...
+2016-08-23T06:04:59.073+0800 I STORAGE  [initandlisten] Starting WiredTigerRecordStoreThread local.oplog.$main
+2016-08-23T06:04:59.073+0800 I STORAGE  [initandlisten] The size storer reports that the oplog contains 0 records totaling to 0 bytes
+2016-08-23T06:04:59.073+0800 I STORAGE  [initandlisten] Scanning the oplog to determine where to place markers for truncation
+2016-08-23T06:04:59.098+0800 I REPL     [initandlisten] ******
+2016-08-23T06:04:59.098+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/database/mongo/data/configcsr/c3/diagnostic.data'
+2016-08-23T06:04:59.099+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2016-08-23T06:04:59.108+0800 I NETWORK  [initandlisten] waiting for connections on port 27002
+2016-08-23T06:05:14.120+0800 W NETWORK  [HostnameCanonicalizationWorker] Failed to obtain address information for hostname good: Name or service not known
+2016-08-23T06:07:02.450+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36010 #1 (1 connection now open)
+2016-08-23T06:07:02.453+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36015 #2 (2 connections now open)
+2016-08-23T06:07:02.454+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36016 #3 (3 connections now open)
+2016-08-23T06:07:02.470+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36019 #4 (4 connections now open)
+2016-08-23T06:07:02.548+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36022 #5 (5 connections now open)
+2016-08-23T06:07:02.548+0800 I SHARDING [conn5] remote client 192.168.30.128:36022 initialized this host as shard config
+2016-08-23T06:07:02.583+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36025 #6 (6 connections now open)
+2016-08-23T06:07:02.682+0800 I INDEX    [conn5] build index on: config.chunks properties: { v: 1, unique: true, key: { ns: 1, min: 1 }, name: "ns_1_min_1", ns: "config.chunks" }
+2016-08-23T06:07:02.682+0800 I INDEX    [conn5] 	 building index using bulk method
+2016-08-23T06:07:02.683+0800 I INDEX    [conn5] build index done.  scanned 0 total records. 0 secs
+2016-08-23T06:07:02.697+0800 I INDEX    [conn5] build index on: config.chunks properties: { v: 1, unique: true, key: { ns: 1, shard: 1, min: 1 }, name: "ns_1_shard_1_min_1", ns: "config.chunks" }
+2016-08-23T06:07:02.697+0800 I INDEX    [conn5] 	 building index using bulk method
+2016-08-23T06:07:02.698+0800 I INDEX    [conn5] build index done.  scanned 0 total records. 0 secs
+2016-08-23T06:07:02.723+0800 I INDEX    [conn5] build index on: config.chunks properties: { v: 1, unique: true, key: { ns: 1, lastmod: 1 }, name: "ns_1_lastmod_1", ns: "config.chunks" }
+2016-08-23T06:07:02.723+0800 I INDEX    [conn5] 	 building index using bulk method
+2016-08-23T06:07:02.723+0800 I INDEX    [conn5] build index done.  scanned 0 total records. 0 secs
+2016-08-23T06:07:02.773+0800 I INDEX    [conn5] build index on: config.shards properties: { v: 1, unique: true, key: { host: 1 }, name: "host_1", ns: "config.shards" }
+2016-08-23T06:07:02.773+0800 I INDEX    [conn5] 	 building index using bulk method
+2016-08-23T06:07:02.782+0800 I INDEX    [conn5] build index done.  scanned 0 total records. 0 secs
+2016-08-23T06:07:02.797+0800 I INDEX    [conn5] build index on: config.locks properties: { v: 1, key: { ts: 1 }, name: "ts_1", ns: "config.locks" }
+2016-08-23T06:07:02.797+0800 I INDEX    [conn5] 	 building index using bulk method
+2016-08-23T06:07:02.801+0800 I INDEX    [conn5] build index done.  scanned 1 total records. 0 secs
+2016-08-23T06:07:02.815+0800 I INDEX    [conn5] build index on: config.locks properties: { v: 1, key: { state: 1, process: 1 }, name: "state_1_process_1", ns: "config.locks" }
+2016-08-23T06:07:02.815+0800 I INDEX    [conn5] 	 building index using bulk method
+2016-08-23T06:07:02.820+0800 I INDEX    [conn5] build index done.  scanned 1 total records. 0 secs
+2016-08-23T06:07:02.833+0800 I INDEX    [conn5] build index on: config.lockpings properties: { v: 1, key: { ping: 1 }, name: "ping_1", ns: "config.lockpings" }
+2016-08-23T06:07:02.833+0800 I INDEX    [conn5] 	 building index using bulk method
+2016-08-23T06:07:02.837+0800 I INDEX    [conn5] build index done.  scanned 1 total records. 0 secs
+2016-08-23T06:07:02.866+0800 I INDEX    [conn5] build index on: config.tags properties: { v: 1, unique: true, key: { ns: 1, min: 1 }, name: "ns_1_min_1", ns: "config.tags" }
+2016-08-23T06:07:02.866+0800 I INDEX    [conn5] 	 building index using bulk method
+2016-08-23T06:07:02.866+0800 I INDEX    [conn5] build index done.  scanned 0 total records. 0 secs
+2016-08-23T06:07:02.882+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36028 #7 (7 connections now open)
+2016-08-23T06:07:31.227+0800 I NETWORK  [conn1] end connection 192.168.30.128:36010 (6 connections now open)
+2016-08-23T06:07:31.227+0800 I NETWORK  [conn2] end connection 192.168.30.128:36015 (5 connections now open)
+2016-08-23T06:07:31.227+0800 I NETWORK  [conn3] end connection 192.168.30.128:36016 (4 connections now open)
+2016-08-23T06:07:31.228+0800 I NETWORK  [conn4] end connection 192.168.30.128:36019 (3 connections now open)
+2016-08-23T06:07:31.228+0800 I NETWORK  [conn5] end connection 192.168.30.128:36022 (2 connections now open)
+2016-08-23T06:07:31.228+0800 I NETWORK  [conn6] end connection 192.168.30.128:36025 (1 connection now open)
+2016-08-23T06:07:31.228+0800 I NETWORK  [conn7] end connection 192.168.30.128:36028 (0 connections now open)
+2016-08-23T06:07:57.300+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36036 #8 (1 connection now open)
+2016-08-23T06:07:57.302+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36041 #9 (2 connections now open)
+2016-08-23T06:07:57.303+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36042 #10 (3 connections now open)
+2016-08-23T06:07:57.306+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36045 #11 (4 connections now open)
+2016-08-23T06:07:57.333+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36048 #12 (5 connections now open)
+2016-08-23T06:07:57.339+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36051 #13 (6 connections now open)
+2016-08-23T06:07:57.369+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36054 #14 (7 connections now open)
+2016-08-23T06:09:49.417+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36065 #15 (8 connections now open)
+2016-08-23T06:09:57.674+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44920 #16 (9 connections now open)
+2016-08-23T06:09:57.674+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44921 #17 (10 connections now open)
+2016-08-23T06:10:03.485+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.128:36074 #18 (11 connections now open)
+2016-08-23T06:10:07.718+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44929 #19 (12 connections now open)
+2016-08-23T06:10:07.719+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44930 #20 (13 connections now open)
+2016-08-23T06:15:10.302+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44939 #21 (14 connections now open)
+2016-08-23T06:15:10.346+0800 I NETWORK  [conn17] end connection 192.168.30.129:44921 (13 connections now open)
+2016-08-23T06:15:10.348+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44942 #22 (14 connections now open)
+2016-08-23T06:15:10.353+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44945 #23 (15 connections now open)
+2016-08-23T06:15:18.836+0800 I NETWORK  [conn19] end connection 192.168.30.129:44929 (14 connections now open)
+2016-08-23T06:15:18.845+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44953 #24 (15 connections now open)
+2016-08-23T06:17:26.163+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44961 #25 (16 connections now open)
+2016-08-23T06:18:03.615+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44966 #26 (17 connections now open)
+2016-08-23T06:18:03.661+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44969 #27 (18 connections now open)
+2016-08-23T06:18:03.723+0800 I NETWORK  [initandlisten] connection accepted from 192.168.30.129:44974 #28 (19 connections now open)
