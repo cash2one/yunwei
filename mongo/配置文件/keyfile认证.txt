@@ -1,0 +1,33 @@
+
+1.所有配置文件注释noauth选项
+2.生成keyfile
+openssl rand -base64 755 > <path-to-keyfile>
+chmod 400 <path-to-keyfile>
+
+3.生成的 <path-to-keyfile> 拷贝到所有副本集机器上
+  重启副本集都要指定 --keyFile <path-to-keyfile>
+
+4.重启mongos 要指定 --keyFile <path-to-keyfile>
+
+
+
+5.设置mongos 密码
+use admin
+db.createUser( { user: "gwlm",pwd: "gwlm_2016",roles: [ "clusterAdmin","userAdminAnyDatabase","dbAdminAnyDatabase","readWriteAnyDatabase" ] } )
+
+
+db.auth("gwlm","gwlm_2016")
+
+
+
+mongo 127.0.0.1/admin -u gwlm -p gwlm_2016 
+
+
+
+
+
+
+
+
+
+

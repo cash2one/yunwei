@@ -1,0 +1,7 @@
+
+
+备注：
+可以使用操作系统的 kill 命令，
+给进程发送 SIGINT 或 SIGTERM 信号，
+即 "kill -2 PID," 或者 “kill -15 PID“。
+
