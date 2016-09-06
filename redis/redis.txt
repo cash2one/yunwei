@@ -2,6 +2,21 @@
 
 
 
+tar xf 
+make PREFIX=/usr/local/redis install
+cp redis.conf /etc/
+cp /usr/local/redis/bin/* /usr/sbin/
+
+
+vim /etc/redis.conf
+redis-server /etc/redis.conf
+
+
+
+
+
+
+
 1：
 Redis 安装报错 error: jemalloc/jemalloc.h: No such file or directory解决方法 
 

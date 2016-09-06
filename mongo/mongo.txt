@@ -14,24 +14,45 @@
 
 
 
+//限制内存
+如果是3.x，加上--wiredTigerCacheSizeGB参数
+
+
+/角色
+roles:[{role:"root",db"admin"}]
 
 
 
 
 
+//查看集合的大小
+db.goods.totalSize()
+1044480/1024/1024 = M
+  b  kb  m     
+
+//
+db.goods.stats()
+
+"totalIndexSize" : 278528,
 
 
+//index
+db.goods.totalIndexSize()
 
 
+//查看每个库的状态
+db._adminCommand("listDatabases").databases.forEach(function (d) {
+   mdb = db.getSiblingDB(d.name);
+   printjson(mdb.stats());
+})
 
 
-
-
-
-
-
-
-
-
-
-
+//查看每个库中每个表的totalIndexSize
+db._adminCommand("listDatabases").databases.forEach(function (d) {
+   mdb = db.getSiblingDB(d.name);
+   mdb.getCollectionNames().forEach(function(c) {
+      s = mdb[c].totalIndexSize();
+      printjson(mdb[c]);
+      printjson(s);
+   })
+})
