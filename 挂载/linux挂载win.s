@@ -1,4 +1,5 @@
 mount -t cifs -o username=lpx,password=lpx //192.168.1.100/admin admin
+mount -t cifs -o username=good,password=123 //192.168.30.1/my_oms oms
 
 mount -t cifs -o username=lpx,password=lpx,uid=27,gid=27,rw  //192.168.1.100/yunwei2 h2_admin/
 

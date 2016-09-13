@@ -22,6 +22,9 @@
 roles:[{role:"root",db"admin"}]
 
 
+//查看引擎
+echo "db.serverStatus()"| mongo --port 27000 |grep wiredTiger
+
 
 
 

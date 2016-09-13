@@ -1,0 +1,74 @@
+yum install ncurses-devel python-devel  mysql-devel gcc gcc-c++ -y
+
+
+
+django1.8  支持 2.7 3.3  不支持 2.6(需升级)
+
+python setup.py install 
+>>> import django
+>>> print(django.get_version())
+1.8
+
+python -c "import django; print(django.get_version())"
+
+
+新建数据库
+CREATE DATABASE `databasename` DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+#创建表,应用数据库
+python manage.py migrate  
+
+数据库同步到modle
+manage.py inspectdb
+
+
+#应用app的module
+python manage.py makemigrations mtime
+#查看生成的sql语句
+python manage.py sqlmigrate mtime 0001
+#应用数据库
+python manage.py migrate
+
+
+
+1:
+ImportError: No module named setuptools
+
+解决：
+wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz
+tar zxvf setuptools-0.6c11.tar.gz
+cd setuptools-0.6c11
+python setup.py build
+python setup.py install
+
+
+2:
+django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb
+
+解决：
+wget http://sourceforge.net/projects/mysql-python/files/mysql-python/1.2.3/MySQL-python-1.2.3.tar.gz
+tar xf MySQL-python-1.2.3.tar.gz 
+cd MySQL-python-1.2.3
+python setup.py build
+python setup.py install
+
+
+
+
+升级python  
+
+#./configure  
+#make all             
+#make install  
+#make clean  
+#make distclean 
+
+#mv /usr/bin/python /usr/bin/python2.6.6  
+#ln -s /usr/local/bin/python2.7 /usr/bin/python  
+
+
+
+
+
+
+
