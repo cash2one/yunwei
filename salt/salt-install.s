@@ -239,16 +239,33 @@ salt '*' file.append /tmp/test/test.conf 'maxclient 1000'
 salt '*' file.remove /etc/foo
 
 
+###jid   /var/cache/salt
+
+查看以前操作的历史记录
+salt-run jobs.list_jobs
+通过jid 查看返回信息
+salt-run jobs.lookup_jid 20160918105014110668 
+
+查看正在运行的任务
+salt-run jobs.active
 
 
+Job常用管理
+
+saltutil模块中的job管理⽅法
+
+saltutil.running #查看minion当前正在运⾏的jobs
+
+saltutil.find_job<jid> #查看指定jid的job(minion正在运⾏的jobs)
+
+saltutil.signal_job<jid> <single> #给指定的jid进程发送信号
+
+saltutil.term_job <jid> #终⽌指定的jid进程(信号为15)
+
+saltutil.kill_job <jid> #终⽌指定的jid进程(信号为9)
 
 
-
-
-
-
-
-curl -k https://192.168.30.129:8888/login -H "Accept: application/x-yaml" \
+curl -k https://139.196.231.187:8888/login -H "Accept: application/x-yaml" \
      -d username='saltapi' \
      -d password='saltapi' \
      -d eauth='pam'
@@ -256,7 +273,7 @@ curl -k https://192.168.30.129:8888/login -H "Accept: application/x-yaml" \
 
 
 
-curl -sSk https://192.168.30.129:8888//run \
+curl -sSk https://192.168.30.129:8888/run \
     -H 'Accept: application/x-yaml' \
     -d client='local' \
     -d tgt='*' \
@@ -264,3 +281,38 @@ curl -sSk https://192.168.30.129:8888//run \
     -d username='saltapi' \
     -d password='saltapi' \
     -d eauth='pam'
+
+
+curl -sik https://139.196.231.187:8888 \
+        -H "Accept: application/x-yaml" \
+        -H "X-Auth-Token: bada51e58f7b59470a91b4de9b1eddfc400835c1" \
+        -d client=local \
+        -d tgt='data-2' \
+        -d fun='cmd.run' \
+        -d arg="uanme -a"
+
+
+
+curl -k https://192.168.30.129:8888/keys -H "Accept: application/x-yaml" -H "X-Auth-Token: 496233d095aa7b8635fc7c91446816258bf0f7ae" 
+ 
+192.168.30.129
+139.196.231.187 
+/////////////////////////////////////////////////
+curl -k https://192.168.30.129:8888/jobs/ \
+     -H "Accept: application/x-yaml" \
+     -H "X-Auth-Token: dfb9a18e618fd0576f2887cd5a6a47578f0798e2"
+
+
+
+
+curl -k https://139.196.231.187:8888/ \
+        -H "Accept: application/x-yaml" \
+        -d client='wheel' \
+        -d fun='key.list_all' \
+        -H "X-Auth-Token: c972b71aa7935069d6fa9bafdc5a7cfa38180e9f"     
+
+
+
+
+
+
